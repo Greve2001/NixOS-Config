@@ -29,6 +29,8 @@
       enable = true;
       shellAliases = {
         update = "sudo nixos-rebuild switch";
+	upgrade = "sudo nixos-rebuild switch --upgrade";
+	clean = "sudo nix-collect-garbage"; 
       };
       history = {
 	size = 10000;
