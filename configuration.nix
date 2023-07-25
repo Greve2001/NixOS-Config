@@ -9,20 +9,9 @@
   
   imports =
     [ <home-manager/nixos>
-      ./hardware-configuration.nix
-      ./programs-configuration.nix
-      ./user-configuration.nix
-      ./network-configuration.nix
-      ./services-configuration.nix
-      ./io-configuration.nix
+      ./global/main.nix
+      ./users/main.nix
     ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # SSH
-  programs.ssh.startAgent = true;
 
   # Home Manager
   home-manager = {
@@ -30,25 +19,7 @@
     useGlobalPkgs = true;
   };
 
-  # Use Zsh
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Auto Upgrade
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
-
-  # System-wide packages
-  environment.systemPackages = with pkgs; [ 
-    pkgs.wget
-    pkgs.git
-    pkgs.neofetch
-    pkgs.alacritty
-    pkgs.firefox
-    pkgs.nextcloud-client
-];
-
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 }
