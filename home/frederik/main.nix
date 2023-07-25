@@ -27,7 +27,7 @@
                 size = 10000;
             };
         };
-
+		
         # Starship
         starship = {
             enable = true;
