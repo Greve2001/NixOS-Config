@@ -35,7 +35,8 @@
     # System-wide packages
     environment.systemPackages = with pkgs; [ 
         pkgs.wget
-        pkgs.git
+	pkgs.pciutils
+	pkgs.git
         pkgs.neofetch
         pkgs.patchelf
 	pkgs.alacritty
@@ -43,6 +44,7 @@
         pkgs.nextcloud-client
     	pkgs.steam-run
         pkgs.libreoffice-fresh
+	pkgs.glxinfo
     ];
 
     environment.variables = {
@@ -52,7 +54,7 @@
 
         # UI Scaling
         GDK_SCALE = "2";
-        GDK_DPI_SCALE = "0.7";
+        GDK_DPI_SCALE = "0.5";
         QT_AUTO_SCREEN_SET_FACTOR = "0";
         QT_SCALE_FACTOR = "2";
         QT_FONT_DPI = "92";
