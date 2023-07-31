@@ -6,12 +6,16 @@
         ./services.nix
         ./io.nix
         ./network.nix
+        ./fonts.nix
     ];
 
     # Shared Programs
     programs.neovim = {
         enable = true;
         defaultEditor = true;
+    };
+    programs.steam = {
+	enable = true;
     };
 
     # SSH
@@ -33,9 +37,12 @@
         pkgs.wget
         pkgs.git
         pkgs.neofetch
-        pkgs.alacritty
+        pkgs.patchelf
+	pkgs.alacritty
         pkgs.firefox
         pkgs.nextcloud-client
+    	pkgs.steam-run
+        pkgs.libreoffice-fresh
     ];
 
     environment.variables = {
@@ -45,7 +52,7 @@
 
         # UI Scaling
         GDK_SCALE = "2";
-        GDK_DPI_SCALE = "0.6";
+        GDK_DPI_SCALE = "0.7";
         QT_AUTO_SCREEN_SET_FACTOR = "0";
         QT_SCALE_FACTOR = "2";
         QT_FONT_DPI = "92";

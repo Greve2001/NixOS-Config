@@ -16,6 +16,7 @@
             pkgs.discord
             pkgs.spotify
             pkgs.vscode
+	    pkgs.lutris
         ];
     };
 
