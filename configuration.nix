@@ -38,13 +38,17 @@
 	nvidia = {
 	  package = config.boot.kernelPackages.nvidiaPackages.stable;
           prime = {
-	    sync.enable = true;
+	    sync.enable = false; # True: Always offloading | False: On-demand offloading
 	    nvidiaBusId = "PCI:1:0:0";
 	    intelBusId = "PCI:0:2:0";
+	      offload = {
+	        enable = true;
+	        enableOffloadCmd = true;
+	      };
 	  };
 
 	  # Fix screen tearing
-	  forceFullCompositionPipeline = true;
+	  #forceFullCompositionPipeline = true;
 	};
       };
     };
