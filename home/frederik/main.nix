@@ -18,13 +18,23 @@
         # Zsh
         zsh = {
             enable = true;
-            shellAliases = {
-                update = "sudo nixos-rebuild switch";
-                upgrade = "sudo nixos-rebuild switch --upgrade";
-                clean = "sudo nix-collect-garbage"; 
+	    autocd = true;
+      	    enableAutosuggestions = true;
+      	    enableCompletion = true;
+      	    enableSyntaxHighlighting = true;
+      	    shellAliases = {
+                icat="kitty +kitten icat";
+                clip="kitty +kitten clipboard";
+                ls="ls --color=auto";
+                ip="ip -c";
             };
             history = {
                 size = 10000;
+            };
+	    shellAliases = {
+                update = "sudo nixos-rebuild switch";
+                upgrade = "sudo nixos-rebuild switch --upgrade";
+                clean = "sudo nix-collect-garbage"; 
             };
         };
 		
