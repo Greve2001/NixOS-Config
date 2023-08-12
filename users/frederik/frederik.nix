@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+    cli = import ../home/programs/cli/main.nix;
+in
 {
     users.users.frederik = {
         isNormalUser = true;
@@ -20,5 +23,5 @@
         ];
     };
 
-    home-manager.users.frederik = import ../home/frederik/main.nix;    
+    home-manager.users.frederik = import ./frederik-imports.nix;
 }

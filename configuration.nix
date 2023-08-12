@@ -5,8 +5,8 @@
   
     imports = [ 
         <home-manager/nixos>
-        ./global/main.nix
-        ./users/frederik.nix
+        ./system/main.nix
+        ./users/frederik/frederik.nix
     ];
 
     # Home Manager
