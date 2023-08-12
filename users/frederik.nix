@@ -8,15 +8,15 @@
             "networkmanager" 
             "wheel" 
         ];
-        packages = [
-            pkgs.tlp
-            pkgs.flameshot
-            pkgs.signal-desktop
-            pkgs.teams
-            pkgs.discord
-            pkgs.spotify
-            pkgs.vscode
-	    pkgs.lutris
+        packages = with pkgs; [
+            tlp
+            flameshot
+            signal-desktop
+            teams
+            discord
+            spotify
+            vscode
+	        lutris
         ];
     };
 

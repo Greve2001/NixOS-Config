@@ -13,7 +13,10 @@
     programs.neovim = {
         enable = true;
         defaultEditor = true;
+	    viAlias = true;
+	    vimAlias = true;
     };
+
     programs.steam = {
 	enable = true;
     };
@@ -34,17 +37,19 @@
 
     # System-wide packages
     environment.systemPackages = with pkgs; [ 
-        pkgs.wget
-	pkgs.pciutils
-	pkgs.git
-        pkgs.neofetch
-        pkgs.patchelf
-	pkgs.alacritty
-        pkgs.firefox
-        pkgs.nextcloud-client
-    	pkgs.steam-run
-        pkgs.libreoffice-fresh
-	pkgs.glxinfo
+        wget
+	    pciutils
+	    git
+        gh
+        neofetch
+        patchelf
+	    alacritty
+        firefox
+        nextcloud-client
+    	steam-run
+        libreoffice-fresh
+	    glxinfo
+        ripgrep
     ];
 
     environment.variables = {
@@ -59,4 +64,5 @@
         QT_SCALE_FACTOR = "2";
         QT_FONT_DPI = "92";
     };
+
 }

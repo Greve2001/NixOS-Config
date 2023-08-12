@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -27,29 +23,25 @@
   specialisation = {
     nvidia.configuration = {
       services.xserver.videoDrivers = [ "nvidia" ];
-      
       hardware = {
         opengl = {
-	  enable = true;
-	  driSupport = true;
-	  driSupport32Bit = true;
-	};
-
-	nvidia = {
-	  package = config.boot.kernelPackages.nvidiaPackages.stable;
-          prime = {
-	    sync.enable = false; # True: Always offloading | False: On-demand offloading
-	    nvidiaBusId = "PCI:1:0:0";
-	    intelBusId = "PCI:0:2:0";
-	      offload = {
 	        enable = true;
-	        enableOffloadCmd = true;
+	        driSupport = true;
+	        driSupport32Bit = true;
 	      };
-	  };
 
-	  # Fix screen tearing
-	  #forceFullCompositionPipeline = true;
-	};
+        nvidia = {
+          package = config.boot.kernelPackages.nvidiaPackages.stable;
+          prime = {
+            sync.enable = false; # True: Always offloading | False: On-demand offloading
+            nvidiaBusId = "PCI:1:0:0";
+            intelBusId = "PCI:0:2:0";
+            offload = {
+              enable = true;
+              enableOffloadCmd = true;
+            };
+          };
+        };
       };
     };
   };
