@@ -8,7 +8,7 @@
     home.stateVersion = "23.05";
 
     programs = {
-	# Git
+	    # Git
         git = {
             enable = true;
             userName = "Greve2001";
@@ -22,19 +22,19 @@
       	    enableAutosuggestions = true;
       	    enableCompletion = true;
       	    enableSyntaxHighlighting = true;
-      	    shellAliases = {
-                icat="kitty +kitten icat";
-                clip="kitty +kitten clipboard";
-                ls="ls --color=auto";
-                ip="ip -c";
-            };
             history = {
                 size = 10000;
             };
 	        shellAliases = {
+                # NixOS specific
                 update = "sudo nixos-rebuild switch";
                 upgrade = "sudo nixos-rebuild switch --upgrade";
-                clean = "sudo nix-collect-garbage"; 
+                clean = "sudo nix-collect-garbage";
+
+                # Utility
+                grep = "rp"; # ripgrep
+                ls = "ls --color=auto"; 
+                ip="ip -c";
             };
         };
 		
