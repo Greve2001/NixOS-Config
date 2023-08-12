@@ -51,6 +51,8 @@
         libreoffice-fresh
 	    glxinfo
         ripgrep
+        zip
+        unzip
     ];
 
     environment.variables = {
