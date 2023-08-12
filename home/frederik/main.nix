@@ -98,6 +98,10 @@
         };
 
         # Nvchad
+        ".config/nvim".text = builtins.fetchGit {
+            url = "ssh://git@github.com/NvChad/NvChad.git";
+        };
+
         ".config/nvim/lua/custom/chadrc.lua".text = builtins.readFile ../../configs/nvchad/chadrc.lua;
         ".config/nvim/lua/custom/configs/lspconfig.lua".text = builtins.readFile ../../configs/nvchad/lspconfig.lua;
         ".config/nvim/lua/custom/configs/null-ls.lua".text = builtins.readFile ../../configs/nvchad/null-ls.lua;
