@@ -7,6 +7,7 @@
         ./io.nix
         ./network.nix
         ./fonts.nix
+        ./specializations.nix
     ];
 
     # Shared Programs
