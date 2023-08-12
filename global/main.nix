@@ -7,6 +7,7 @@
         ./io.nix
         ./network.nix
         ./fonts.nix
+        ./specializations.nix
     ];
 
     # Shared Programs
@@ -64,5 +65,4 @@
         QT_SCALE_FACTOR = "2";
         QT_FONT_DPI = "92";
     };
-
 }

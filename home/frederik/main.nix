@@ -18,7 +18,7 @@
         # Zsh
         zsh = {
             enable = true;
-	    autocd = true;
+	        autocd = true;
       	    enableAutosuggestions = true;
       	    enableCompletion = true;
       	    enableSyntaxHighlighting = true;
@@ -31,7 +31,7 @@
             history = {
                 size = 10000;
             };
-	    shellAliases = {
+	        shellAliases = {
                 update = "sudo nixos-rebuild switch";
                 upgrade = "sudo nixos-rebuild switch --upgrade";
                 clean = "sudo nix-collect-garbage"; 

@@ -10,10 +10,4 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-
-  # Eduroam certificate
-  #home.file."../config/ca_eduroam.pem" = {
-  #   text = builtins.readFile ../configs/eduroam/ca_eduroam.pem; 
-  #};
 }
