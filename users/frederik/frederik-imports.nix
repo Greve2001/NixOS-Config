@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 let
     git_username = import ../../local/frederik/git-username.nix;
@@ -7,7 +7,7 @@ in
 {
     imports = [
         ../../home/shared/main.nix
-        ../../home/programs/cli/main.nix 
-        (import ../../home/programs/git.nix { username = git_username; email = git_email; })
+        ../../home/cli/main.nix 
+        (import ../../home/git.nix { username = git_username; email = git_email; })
     ];
 }

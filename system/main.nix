@@ -8,6 +8,7 @@
         ./network.nix
         ./fonts.nix
         ./specializations.nix
+        ./power-management.nix
     ];
 
     # Shared Programs
