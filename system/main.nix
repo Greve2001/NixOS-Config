@@ -52,12 +52,6 @@
         zip
         unzip
 
-        # Development
-        file
-        xz
-        libGLU
-        jdk
-
         # Applications
         firefox
         nextcloud-client

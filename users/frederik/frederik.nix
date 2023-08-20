@@ -22,6 +22,12 @@ in
 	        lutris
 
             # Development
+            file
+            xz
+            libGLU
+            jdk
+            android-tools
+            flutter
             android-studio
         ];
     };

@@ -17,7 +17,7 @@
             clean = "sudo nix-collect-garbage";
 
             # Utility
-            grep = "rp"; # ripgrep
+            grep = "rg"; # ripgrep
             ls = "ls --color=auto"; 
             ip = "ip -c";
         };
