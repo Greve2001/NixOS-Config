@@ -19,7 +19,11 @@
             # Utility
             grep = "rp"; # ripgrep
             ls = "ls --color=auto"; 
-            ip="ip -c";
+            ip = "ip -c";
         };
+        initExtra = ''
+            bindkey '^R' history-incremental-search-backward
+        '';
     };
 }
+y
