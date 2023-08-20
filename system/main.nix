@@ -20,7 +20,7 @@
     };
 
     programs.steam = {
-	enable = true;
+	    enable = true;
     };
 
     # SSH
@@ -39,6 +39,7 @@
 
     # System-wide packages
     environment.systemPackages = with pkgs; [ 
+        # Utility and Tools
         wget
 	    pciutils
 	    git
@@ -46,14 +47,22 @@
         neofetch
         patchelf
 	    alacritty
-        firefox
-        nextcloud-client
-    	steam-run
-        libreoffice-fresh
 	    glxinfo
         ripgrep
         zip
         unzip
+
+        # Development
+        file
+        xz
+        libGLU
+        jdk
+
+        # Applications
+        firefox
+        nextcloud-client
+    	steam-run
+        libreoffice-fresh
     ];
 
     environment.variables = {

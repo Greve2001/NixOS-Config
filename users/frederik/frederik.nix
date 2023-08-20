@@ -20,6 +20,9 @@ in
             spotify
             vscode
 	        lutris
+
+            # Development
+            android-studio
         ];
     };
 

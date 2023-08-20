@@ -9,10 +9,31 @@
         ./users/frederik/frederik.nix
     ];
 
+    # Experimental
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
     # Home Manager
     home-manager = {
         useUserPackages = true;
         useGlobalPkgs = true;
+    };
+
+    # Garbage Collection
+    nix.settings.auto-optimise-store = true;
+    nix.gc = {
+        automatic = true;
+        persistent = true;
+        dates = "weekly";
+        options = "-d";
+        randomizedDelaySec = "15min";
+    };
+
+    # Auto upgrades
+    system.autoUpgrade = {
+        enable = true;
+        persistent = true;
+        dates = "daily";
+        randomizedDelaySec = "15min";
     };
 
     # Bootloader.
