@@ -8,7 +8,6 @@ in
     imports = [
         ../../home/shared/main.nix
         ../../home/cli/main.nix 
-        ../../home/editors/main.nix 
         (import ../../home/git.nix { username = git_username; email = git_email; })
     ];
 }
