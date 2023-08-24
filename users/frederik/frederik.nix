@@ -18,17 +18,17 @@ in
             teams
             discord
             spotify
-            vscode
 	        lutris
-
+            
             # Development
             file
             xz
             libGLU
-            jdk
-            android-tools
-            flutter
             android-studio
+
+            # SDKs
+            jdk
+            dotnet-sdk
         ];
     };
 
