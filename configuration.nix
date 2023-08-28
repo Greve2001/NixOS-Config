@@ -28,14 +28,6 @@
         randomizedDelaySec = "15min";
     };
 
-    # Auto upgrades
-    system.autoUpgrade = {
-        enable = true;
-        persistent = true;
-        dates = "daily";
-        randomizedDelaySec = "15min";
-    };
-
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;

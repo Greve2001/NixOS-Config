@@ -18,6 +18,7 @@ in
             teams
             discord
             spotify
+	    obsidian
 	        lutris
 
             (vscode-with-extensions.override {
