@@ -2,8 +2,9 @@
 
 {
     imports = [
-        ./cli
-        ./dev
+        ./git.nix
+        ./starship.nix
+        ./zsh.nix
     ];
 
     # Home Manager Specification
