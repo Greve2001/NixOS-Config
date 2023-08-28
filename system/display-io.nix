@@ -1,16 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 
-let
-    login = [ "multi-user.target" ];
-in
 {
-    # Startup Applications
-    systemd.user.services.nextcloud-client = {
-      	description = "Nextcloud Service";
-      	script = "nextcloud &";
-      	wantedBy = login;
-    };
-
+ 	console.keyMap = "dk-latin1";
+  
     # Display Server
     services.xserver = {
       	enable = true;
@@ -20,7 +12,17 @@ in
       	desktopManager.plasma5.enable = true;
   	};
 
- 	console.keyMap = "dk-latin1";
+    # Sound
+    sound.enable = true;
+  	hardware.pulseaudio.enable = false;
+  	security.rtkit.enable = true;
+  	services.pipewire = {
+   		enable = true;
+    	alsa.enable = true;
+    	alsa.support32Bit = true;
+    	pulse.enable = true;
+	};
+
 
  	# Enable CUPS to print documents.
  	services.printing.enable = true;
@@ -39,4 +41,9 @@ in
  	  	LC_TELEPHONE = "da_DK.UTF-8";
  	  	LC_TIME = "da_DK.UTF-8";
  	};
+
+    # Fonts
+    fonts.fonts = with pkgs; [
+        nerdfonts
+    ];
 }

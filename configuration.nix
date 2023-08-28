@@ -5,8 +5,8 @@
   
     imports = [ 
         <home-manager/nixos>
-        ./system/main.nix
-        ./users/frederik/frederik.nix
+        ./system
+        ./frederik.nix 
     ];
 
     # Experimental
@@ -17,7 +17,7 @@
         useUserPackages = true;
         useGlobalPkgs = true;
     };
-
+    
     # Garbage Collection
     nix.settings.auto-optimise-store = true;
     nix.gc = {
