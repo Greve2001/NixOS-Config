@@ -6,7 +6,7 @@
     imports = [ 
         <home-manager/nixos>
         ./system
-        ./frederik.nix 
+        ./users/frederik.nix 
     ];
 
     # Experimental

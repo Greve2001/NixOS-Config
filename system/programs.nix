@@ -33,12 +33,51 @@
         ripgrep
         zip
         unzip
+        tlp
+        flameshot
 
         # Applications
         firefox
         nextcloud-client
     	steam-run
         libreoffice-fresh
+        signal-desktop
+        teams
+        discord
+        spotify
+        obsidian
+        lutris
+
+        # Development
+        file
+        xz
+        libGLU
+        android-studio
+
+        # SDKs
+        jdk
+        dotnet-sdk
+
+        # VS Code Config        
+        (vscode-with-extensions.override {
+            vscodeExtensions = with vscode-extensions; [
+                # Theme
+                zhuangtongfa.material-theme
+                pkief.material-icon-theme
+
+                # Utility
+                vscodevim.vim
+                yzhang.markdown-all-in-one
+                shd101wyy.markdown-preview-enhanced
+
+                # Programming Languages and Linters
+                ms-dotnettools.csharp # Ionide dependency
+                ionide.ionide-fsharp
+
+                bbenoist.nix
+                redhat.java
+            ];
+        })
     ];
 
     environment.variables = {
