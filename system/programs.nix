@@ -35,9 +35,11 @@
         unzip
         tlp
         flameshot
+        virt-manager
 
         # Applications
         firefox
+	    thunderbird
         nextcloud-client
     	steam-run
         libreoffice-fresh
@@ -57,6 +59,7 @@
         # SDKs
         jdk
         dotnet-sdk
+        python39
 
         # VS Code Config        
         (vscode-with-extensions.override {
@@ -73,6 +76,7 @@
                 # Programming Languages and Linters
                 ms-dotnettools.csharp # Ionide dependency
                 ionide.ionide-fsharp
+                ms-python.python
 
                 bbenoist.nix
                 redhat.java

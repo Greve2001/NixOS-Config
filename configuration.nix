@@ -31,4 +31,8 @@
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
+
+    # Virtualization
+    virtualisation.libvirtd.enable = true;
+    programs.dconf.enable = true;
 }

@@ -10,7 +10,8 @@
         description = "Frederik Greve Petersen";
         extraGroups = [ 
             "networkmanager" 
-            "wheel" 
+            "wheel"
+            "libvirtd"
         ];
     };
 }
