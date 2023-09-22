@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+    gitpolite = pkgs.callPackage ../pkgs/gitpolite {};
+in
 {
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
@@ -55,6 +58,10 @@
         xz
         libGLU
         android-studio
+        gnumake
+        gcc
+        virtualenv
+	    gitpolite
 
         # SDKs
         jdk
