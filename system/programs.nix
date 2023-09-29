@@ -31,7 +31,6 @@ in
         gh
         neofetch
         patchelf
-	    alacritty
 	    glxinfo
         ripgrep
         zip
@@ -42,9 +41,9 @@ in
 
         # Applications
         firefox
-	    thunderbird
         nextcloud-client
     	steam-run
+        protontricks
         libreoffice-fresh
         signal-desktop
         teams

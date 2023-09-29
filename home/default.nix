@@ -5,6 +5,7 @@
         ./git.nix
         ./starship.nix
         ./zsh.nix
+        ./kitty.nix
     ];
 
     # Home Manager Specification

@@ -11,6 +11,11 @@
       	displayManager.sddm.enable = true;
       	desktopManager.plasma5.enable = true;
   	};
+	environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+    	elisa
+    	konsole
+		khelpcenter
+  ];
 
     # Sound
     sound.enable = true;
