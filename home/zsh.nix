@@ -14,8 +14,6 @@
       upgrade = "sudo nixos-rebuild switch --upgrade";
       clean = "sudo nix-collect-garbage";
 
-      nixvim = "nix run github:mikaelfangel/nixvim-config";
-
       # Utility
       grep = "rg"; # ripgrep
       ls = "ls --color=auto";

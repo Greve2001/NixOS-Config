@@ -1,9 +1,13 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   system.stateVersion = "23.05"; # DONT TOUCH
 
-  imports = [ <home-manager/nixos> ./system ./users/frederik.nix ];
+  imports = [ 
+    inputs.home-manager.nixosModules.home-manager
+    ./system 
+    ./users/frederik.nix 
+    ];
 
   # Experimental
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
