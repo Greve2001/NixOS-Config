@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, inputs, pkgs, nur, ... }:
 
 {
   system.stateVersion = "23.05"; # DONT TOUCH
@@ -17,6 +17,8 @@
     useUserPackages = true;
     useGlobalPkgs = true;
   };
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
 
   # Garbage Collection
   nix.settings.auto-optimise-store = true;

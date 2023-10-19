@@ -1,7 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, inputs, nur, ... }:
 
-let gitpolite = pkgs.callPackage ../pkgs/gitpolite { };
-in
 {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -42,6 +40,9 @@ in
     virt-manager
     wineWowPackages.full
 
+    # Flakes
+    inputs.nixvim.packages."x86_64-linux".default
+
     # Applications
     firefox
     thunderbird
@@ -50,7 +51,6 @@ in
     protontricks
     libreoffice-fresh
     signal-desktop
-    teams
     discord
     spotify
     obsidian
@@ -66,12 +66,11 @@ in
     gnumake
     gcc
     virtualenv
-    gitpolite
 
     # SDKs
     jdk
     dotnet-sdk
-    python39
+    # python39
 
     # VS Code Config        
     (vscode-with-extensions.override {
