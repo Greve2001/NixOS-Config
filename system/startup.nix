@@ -1,12 +1,12 @@
 { ... }:
 
-let
-    login = [ "multi-user.target" ];
+let login = [ "multi-user.target" ];
 in
 {
-    systemd.user.services.nextcloud-client = {
-      	description = "Nextcloud Service";
-      	script = "nextcloud &";
-      	wantedBy = login;
-    };
+  systemd.user.services.nextcloud-client = {
+    description = "Nextcloud Service";
+    script = "nextcloud &";
+    wantedBy = login;
+  };
 }
+

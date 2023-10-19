@@ -1,105 +1,111 @@
 { pkgs, ... }:
 
-let
-    gitpolite = pkgs.callPackage ../pkgs/gitpolite {};
+let gitpolite = pkgs.callPackage ../pkgs/gitpolite { };
 in
 {
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
-    programs.ssh.startAgent = true;
+  programs.ssh.startAgent = true;
 
-    users.defaultUserShell = pkgs.zsh;
-    programs.zsh.enable = true;
-    
-    programs.neovim = {
-        enable = true;
-        defaultEditor = true;
-	    viAlias = true;
-	    vimAlias = true;
-    };
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
 
-    programs.steam = {
-	    enable = true;
-    };
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
 
-    environment.systemPackages = with pkgs; [ 
-        # Utility and Tools
-        wget
-	    pciutils
-	    git
-        gh
-        neofetch
-        patchelf
-	    glxinfo
-        ripgrep
-        zip
-        unzip
-        tlp
-        flameshot
-        virt-manager
+  programs.steam = { enable = true; };
 
-        # Applications
-        firefox
-        nextcloud-client
-    	steam-run
-        protontricks
-        libreoffice-fresh
-        signal-desktop
-        teams
-        discord
-        spotify
-        obsidian
-        lutris
+  environment.systemPackages = with pkgs; [
+    # Desktop Setup
+    networkmanagerapplet
+    flameshot
+    rofi
+    redshift
 
-        # Development
-        file
-        xz
-        libGLU
-        android-studio
-        gnumake
-        gcc
-        virtualenv
-	    gitpolite
+    # Utility and Tools
+    wget
+    pciutils
+    git
+    gh
+    neofetch
+    patchelf
+    glxinfo
+    ripgrep
+    zip
+    unzip
+    tlp
+    virt-manager
+    wineWowPackages.full
 
-        # SDKs
-        jdk
-        dotnet-sdk
-        python39
+    # Applications
+    firefox
+    thunderbird
+    nextcloud-client
+    steam-run
+    protontricks
+    libreoffice-fresh
+    signal-desktop
+    teams
+    discord
+    spotify
+    obsidian
+    krita
+    joplin-desktop
 
-        # VS Code Config        
-        (vscode-with-extensions.override {
-            vscodeExtensions = with vscode-extensions; [
-                # Theme
-                zhuangtongfa.material-theme
-                pkief.material-icon-theme
+    # Development
+    file
+    xz
+    libGLU
+    android-studio
+    jetbrains.idea-ultimate
+    gnumake
+    gcc
+    virtualenv
+    gitpolite
 
-                # Utility
-                vscodevim.vim
-                yzhang.markdown-all-in-one
-                shd101wyy.markdown-preview-enhanced
+    # SDKs
+    jdk
+    dotnet-sdk
+    python39
 
-                # Programming Languages and Linters
-                ms-dotnettools.csharp # Ionide dependency
-                ionide.ionide-fsharp
-                ms-python.python
+    # VS Code Config        
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        # Theme
+        zhuangtongfa.material-theme
+        pkief.material-icon-theme
 
-                bbenoist.nix
-                redhat.java
-            ];
-        })
-    ];
+        # Utility
+        vscodevim.vim
+        yzhang.markdown-all-in-one
+        shd101wyy.markdown-preview-enhanced
 
-    environment.variables = {
-        # Editors
-        EDITOR = "nvim";
-        VISUAL = "nvim";
+        # Programming Languages and Linters
+        ms-dotnettools.csharp # Ionide dependency
+        ionide.ionide-fsharp
+        ms-python.python
 
-        # UI Scaling
-        GDK_SCALE = "2";
-        GDK_DPI_SCALE = "0.5";
-        QT_AUTO_SCREEN_SET_FACTOR = "0";
-        QT_SCALE_FACTOR = "1.75"; # Updated from '2'
-        QT_FONT_DPI = "92";
-    };
+        bbenoist.nix
+        redhat.java
+      ];
+    })
+  ];
+
+  environment.variables = {
+    # Editors
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+
+    # UI Scaling
+    GDK_SCALE = "2";
+    GDK_DPI_SCALE = "0.5";
+    QT_AUTO_SCREEN_SET_FACTOR = "0";
+    QT_SCALE_FACTOR = "1.75"; # Updated from '2'
+    QT_FONT_DPI = "92";
+  };
 }

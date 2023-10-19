@@ -1,21 +1,18 @@
 { ... }:
 
 {
-    imports = [
-        ./git.nix
-        ./starship.nix
-        ./zsh.nix
-        ./kitty.nix
-    ];
+  imports = [ ./git.nix ./starship.nix ./zsh.nix ./kitty.nix ];
 
-    # Home Manager Specification
-    home = {
-        stateVersion = "23.05";
+  # Home Manager Specification
+  home = {
+    stateVersion = "23.05";
 
-        # Files
-        file = {
-            # Eduroam certificate
-            ".config/ca_eduroam.pem".text = builtins.readFile ../configs/eduroam/ca_eduroam.pem;
-        };
+    # Files
+    file = {
+      # Eduroam certificate
+      ".config/ca_eduroam.pem".text =
+        builtins.readFile ../configs/eduroam/ca_eduroam.pem;
     };
+  };
 }
+

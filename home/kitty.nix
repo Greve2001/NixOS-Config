@@ -1,11 +1,10 @@
 { ... }:
 
 {
-    programs.kitty = {
-        enable = true;
-        theme = "Monokai Soda";
-        settings = {
-            background_opacity = "0.80";
-        };
-    };
+  programs.kitty = {
+    enable = true;
+    theme = "Monokai Soda";
+    settings = { background_opacity = "0.80"; };
+  };
 }
+
