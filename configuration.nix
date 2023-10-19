@@ -3,37 +3,42 @@
 {
   system.stateVersion = "23.05"; # DONT TOUCH
 
-  imports = [ 
+  imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./system 
-    ./users/frederik.nix 
-    ];
+    ./system
+    ./users/frederik.nix
+  ];
 
-  # Experimental
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Nix settings
+  nix = {
+    nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
+    
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+    };
+
+    gc = { # Garbage Collecion
+      automatic = true;
+      persistent = true;
+      dates = "weekly";
+      options = "-d";
+      randomizedDelaySec = "15min";
+    };
+  };
+
+  # Boot
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    tmp.useTmpfs = true;
+  };
 
   # Home Manager
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
   };
-
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
-
-  # Garbage Collection
-  nix.settings.auto-optimise-store = true;
-  nix.gc = {
-    automatic = true;
-    persistent = true;
-    dates = "weekly";
-    options = "-d";
-    randomizedDelaySec = "15min";
-  };
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.tmp.useTmpfs = true;
 
   # Virtualization
   virtualisation.libvirtd.enable = true;
