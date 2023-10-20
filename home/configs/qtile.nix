@@ -18,6 +18,7 @@ terminal = guess_terminal()
 
 process_bar = bar.Bar(
     [
+        # Right Side
         widget.CurrentLayout(),
         widget.GroupBox(
             highlight_method='line',
@@ -30,14 +31,20 @@ process_bar = bar.Bar(
         widget.Prompt(
             foreground='${theme.primary-color}'
         ),
-        widget.WindowName(),
-        widget.Chord(
-            chords_colors={
-                "launch": ("#ff0000", "#ffffff"),
-            },
-            name_transform=lambda name: name.upper(),
-        ),
+        
+
+        widget.Spacer(),
+
+        # Left side
         widget.Systray(icon_size=32),
+        widget.Spacer(length=20),
+        widget.Battery(
+            fmt='Bat: {}'
+        ),
+        widget.Spacer(length=20),
+        widget.Volume(
+            fmt='Vol: {}'
+        ),
         widget.Spacer(length=20),
         widget.Clock(format="%d-%m-%Y %a %H:%M %p"),
     ], 
@@ -74,7 +81,7 @@ keys = [
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key([mod, shift], "Return", lazy.layout.toggle_split(),desc="Toggle between split and unsplit sides of stack"),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     #Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
@@ -104,7 +111,8 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-        border_focus_stack=['${theme.primary-color}', '${theme.primary-color}'], 
+        border_focus_stack=['${theme.primary-color}', '${theme.primary-color}'],
+        border_focus='${theme.primary-color}',
         border_width=5
     ),
     layout.Max(),

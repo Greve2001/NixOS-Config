@@ -18,7 +18,10 @@
       xkbVariant = "";
       #displayManager.sddm.enable = true;
       #desktopManager.plasma5.enable = true;
-      displayManager.lightdm.enable = true;
+      displayManager.lightdm = {
+        enable = true;
+        background = ../theme/background.jpg;
+      };
       windowManager.qtile.enable = true;
     };
 
