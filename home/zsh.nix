@@ -11,7 +11,8 @@
     shellAliases = {
       # NixOS specific
       update = "sudo nixos-rebuild switch";
-      upgrade = "sudo nixos-rebuild switch --upgrade";
+      # upgrade = "sudo nixos-rebuild switch --upgrade";  (Pre-Flakyfied System)
+      upgrade = "(cd /etc/nixos && sudo nix flake update) && sudo nixos-rebuild switch";
       clean = "sudo nix-collect-garbage";
 
       # Utility

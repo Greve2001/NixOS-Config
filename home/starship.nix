@@ -1,23 +1,20 @@
-{ ... }:
-
+let
+  cp = import ../color-palette.nix;
+in
 {
+
   programs.starship = {
     enable = true;
 
     settings = {
       format = ''
         $character$username$directory$git_branch$cmd_duration
-        [❯ ](bold #89b4fa)
+        [❯ ](bold ${cp.primary-color})
       '';
 
       git_branch = {
-        format = "[$symbol $branch(:$remote_branch) ](bold #89b4fa)";
+        format = "[$symbol $branch(:$remote_branch) ](bold ${cp.primary-color})";
         symbol = "";
-      };
-
-      os.symbols = {
-        Arch = " ";
-        Linux = " ";
       };
 
       directory = {
@@ -28,25 +25,25 @@
 
       character = {
         success_symbol = "";
-        error_symbol = "[](red bold)";
+        error_symbol = "[](bold ${cp.error-color})";
       };
 
       hostname = {
         ssh_only = false;
         ssh_symbol = "🌐";
-        format = "[$ssh_symbol$hostame](bold #89b4fa)";
+        format = "[$ssh_symbol$hostame](bold ${cp.error-color})";
       };
 
       username = {
-        style_root = "bold red";
-        style_user = "bold #89b4fa";
-        format = "[$user ](bold #89b4fa)";
+        style_root = "bold ${cp.root-color}";
+        style_user = "bold ${cp.primary-color}";
+        format = "[$user ](bold ${cp.primary-color})";
         show_always = true;
       };
 
       cmd_duration = {
         min_time = 1;
-        format = "[[ ](fg:#eba0ac bold)$duration](fg:#BBC3DF)";
+        format = "[[ ](fg: bold)$duration](fg: ${cp.weak-text-color})";
         disabled = false;
       };
     };

@@ -11,7 +11,7 @@
     file = {
       # Eduroam certificate
       ".config/ca_eduroam.pem".text =
-        builtins.readFile ../configs/eduroam/ca_eduroam.pem;
+        builtins.readFile ./certificates/ca_eduroam.pem;
     };
   };
 }
