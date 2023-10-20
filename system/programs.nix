@@ -26,7 +26,7 @@
     networkmanagerapplet
     flameshot
     rofi
-    redshift
+    arandr
 
     # Utility and Tools
     wget

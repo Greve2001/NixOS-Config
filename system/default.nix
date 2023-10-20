@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./display-io.nix
     ./hardware.nix
     ./network.nix
     ./power-management.nix
@@ -15,10 +14,21 @@
     # Display Server & Desktop Manager
     xserver = {
       enable = true;
-      layout = "dk";
+      layout = "us";
       xkbVariant = "";
-      displayManager.sddm.enable = true;
-      desktopManager.plasma5.enable = true;
+      #displayManager.sddm.enable = true;
+      #desktopManager.plasma5.enable = true;
+      windowManager.qtile.enable = true;
+      displayManager.lightdm.enable = true;
+    };
+
+    # Blue light filter
+    redshift = {
+      enable = true;
+      temperature = {
+        day = 5300;
+        night = 3700;
+      };
     };
 
     # CUPS printing
