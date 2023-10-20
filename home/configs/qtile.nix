@@ -1,3 +1,9 @@
+let
+  theme = import ../../theme;
+in
+{
+  text = ''
+    
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -9,6 +15,36 @@ ctrl = "control"
 shift = "shift" 
 
 terminal = guess_terminal()
+
+process_bar = bar.Bar(
+    [
+        widget.CurrentLayout(),
+        widget.GroupBox(
+            highlight_method='line',
+            this_current_screen_border='${theme.primary-color}',
+            
+            urgent_alert_method='text',
+            urgent_border='${theme.error-color}',
+            urgent_text='${theme.error-color}',
+        ),
+        widget.Prompt(
+            foreground='${theme.primary-color}'
+        ),
+        widget.WindowName(),
+        widget.Chord(
+            chords_colors={
+                "launch": ("#ff0000", "#ffffff"),
+            },
+            name_transform=lambda name: name.upper(),
+        ),
+        widget.Systray(icon_size=32),
+        widget.Spacer(length=20),
+        widget.Clock(format="%d-%m-%Y %a %H:%M %p"),
+    ], 
+    50 # Size
+)
+
+    
 
 keys = [
     # Switch between windows
@@ -31,7 +67,7 @@ keys = [
     Key([mod, ctrl], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, ctrl], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, ctrl], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([mod, ctrl], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -40,13 +76,19 @@ keys = [
     Key([mod, shift], "Return", lazy.layout.toggle_split(),desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
-    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
-    Key([mod, ctrl], "r", lazy.reload_config(), desc="Reload the config"),
+    #Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod, shift], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
+    Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, ctrl], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "Return", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    
+    # Shutdown and Reboot
+    Key([mod, shift, ctrl], "q", lazy.spawn('shutdown'), desc="Shutdown"),
+    Key([mod, shift, ctrl], "r", lazy.spawn('reboot'), desc="Restart"),
+
+    # Meta
+    Key([mod, alt, ctrl], "r", lazy.reload_config(), desc="Reload the config"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -61,7 +103,10 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(
+        border_focus_stack=['${theme.primary-color}', '${theme.primary-color}'], 
+        border_width=5
+    ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -84,28 +129,7 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 screens = [
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
-            ],
-            50,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-        ),
-    ),
+    Screen(bottom=process_bar),
 ]
 
 # Drag floating layouts.
@@ -153,3 +177,6 @@ wl_input_rules = None
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+  '';
+}

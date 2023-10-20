@@ -1,5 +1,6 @@
-{ ... }:
-
+let
+  qtile-config = import ./configs/qtile.nix;
+in
 {
   imports = [ ./git.nix ./starship.nix ./zsh.nix ./kitty.nix ];
 
@@ -14,8 +15,8 @@
         builtins.readFile ./certificates/ca_eduroam.pem;
 
       # Qtile
-      ".config/qtile/config.py".text =
-        builtins.readFile ./configs/qtile/config.py;
+      ".config/qtile/config.py".text = qtile-config.text;
+        
     };
   };
 }
