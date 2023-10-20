@@ -19,10 +19,7 @@
       #displayManager.sddm.enable = true;
       #desktopManager.plasma5.enable = true;
       displayManager.lightdm.enable = true;
-      windowManager.qtile = {
-        enable = true;
-        configFile = ./configs/qtile/config.py;
-      };
+      windowManager.qtile.enable = true;
     };
 
     # Blue light filter
