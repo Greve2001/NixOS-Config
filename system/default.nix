@@ -18,18 +18,21 @@
       xkbVariant = "";
       #displayManager.sddm.enable = true;
       #desktopManager.plasma5.enable = true;
-      windowManager.qtile.enable = true;
       displayManager.lightdm.enable = true;
+      windowManager.qtile = {
+        enable = true;
+        configFile = ./configs/qtile/config.py;
+      };
     };
 
     # Blue light filter
-    redshift = {
-      enable = true;
-      temperature = {
-        day = 5300;
-        night = 3700;
-      };
-    };
+    #redshift = {
+    #  enable = true;
+    #  temperature = {
+    #    day = 5300;
+    #    night = 3700;
+    #  };
+    #};
 
     # CUPS printing
     printing.enable = true;

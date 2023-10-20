@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 {
-  lib.mkForce.specialisation = {
+  specialisation = {
     # Full Desktop Manager
     plasma-kde.configuration = {
-      services = {
+      lib.mkForce.services = {
         # Display Server & Desktop Manager
         xserver = {
           enable = true;

@@ -27,6 +27,7 @@
     flameshot
     rofi
     arandr
+    brightnessctl
 
     # Utility and Tools
     wget
