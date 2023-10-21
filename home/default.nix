@@ -2,7 +2,13 @@ let
   qtile-config = import ./configs/qtile.nix;
 in
 {
-  imports = [ ./git.nix ./starship.nix ./zsh.nix ./kitty.nix ];
+  imports = [
+    # Terminal
+    ./git.nix 
+    ./starship.nix 
+    ./zsh.nix 
+    ./kitty.nix
+  ];
 
   # Home Manager Specification
   home = {
@@ -16,7 +22,11 @@ in
 
       # Qtile
       ".config/qtile/config.py".text = qtile-config.text;
-        
+      
+      # Xresources
+      ".Xresources".text = ''
+        Xft.dpi: 192
+      '';
     };
   };
 }

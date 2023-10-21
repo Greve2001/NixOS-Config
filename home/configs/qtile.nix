@@ -91,7 +91,7 @@ keys = [
     Key([mod], "Return", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     
     # Shutdown and Reboot
-    Key([mod, shift, ctrl], "q", lazy.spawn('shutdown'), desc="Shutdown"),
+    Key([mod, shift, ctrl], "q", lazy.spawn('poweroff'), desc="Shutdown"),
     Key([mod, shift, ctrl], "r", lazy.spawn('reboot'), desc="Restart"),
 
     # Meta

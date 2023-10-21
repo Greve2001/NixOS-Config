@@ -57,9 +57,10 @@
       # UI Scaling
       GDK_SCALE = "2";
       GDK_DPI_SCALE = "0.5";
-      QT_AUTO_SCREEN_SET_FACTOR = "0";
+      QT_AUTO_SCREEN_SET_FACTOR = "1";
+      QT_ENABLE_HIGHDPI_SCALING = "1";
       QT_SCALE_FACTOR = "1.75"; # Updated from '2'
-      QT_FONT_DPI = "92";
+      QT_FONT_DPI = "96";
     };
   };
 

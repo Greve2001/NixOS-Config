@@ -7,6 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
     nixvim.url = "github:mikaelfangel/nixvim-config";
+
   };
 
   outputs = inputs@{self, nixpkgs, home-manager, nur, ...}:
