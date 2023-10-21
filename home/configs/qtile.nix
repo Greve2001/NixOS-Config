@@ -1,5 +1,6 @@
 let
   theme = import ../../theme;
+  wallpaper-path = ../../theme/background.jpg;
 in
 {
   text = ''
@@ -16,13 +17,36 @@ shift = "shift"
 
 terminal = guess_terminal()
 
+
+# -------------------- Groups -------------------- #
+
+groups = []
+group_names = ['1', '2', '3', '4', '5', '6', '7']
+group_labels = ['󰲡', '󰲣', '󰲥', '󰲧', '󰲩', '󰭹', '']
+
+for i in range(len(group_names)):
+  groups.append(
+    Group(
+      name=group_names[i],
+      label=group_labels[i]
+    )
+  )
+
+
+
+# -------------------- Process Bar -------------------- #
+
 process_bar = bar.Bar(
     [
         # Right Side
         widget.CurrentLayout(),
         widget.GroupBox(
-            highlight_method='line',
+            margin_x=7,
+            padding_x=4,
+
+            highlight_method='text',
             this_current_screen_border='${theme.primary-color}',
+            other_current_screen_border='${theme.secondary-color}',
             
             urgent_alert_method='text',
             urgent_border='${theme.error-color}',
@@ -42,8 +66,9 @@ process_bar = bar.Bar(
             fmt='Bat: {}'
         ),
         widget.Spacer(length=20),
-        widget.Volume(
-            fmt='Vol: {}'
+        widget.PulseVolume(
+            fmt='Vol: {}',
+            volume_app='pavucontrol'
         ),
         widget.Spacer(length=20),
         widget.Clock(format="%d-%m-%Y %a %H:%M %p"),
@@ -52,6 +77,7 @@ process_bar = bar.Bar(
 )
 
     
+# -------------------- Keymaps -------------------- #
 
 keys = [
     # Switch between windows
@@ -75,30 +101,34 @@ keys = [
     Key([mod, ctrl], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, ctrl], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod, ctrl], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    #Key([mod, ctrl], "s", lazy.layout.toggle_split(),desc="Toggle between split and unsplit sides of stack"),
     
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    Key([mod, shift], "Return", lazy.layout.toggle_split(),desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
+    
     # Toggle between different layouts as defined below
-    #Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, shift], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
     Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
-    Key([mod, ctrl], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+
+    # Kill window
+    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
+    
+    # Spawning
     Key([mod], "Return", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod, shift], "Return", lazy.spawn('rofi -show run'), desc="Start Rofi"),
     
     # Shutdown and Reboot
     Key([mod, shift, ctrl], "q", lazy.spawn('poweroff'), desc="Shutdown"),
     Key([mod, shift, ctrl], "r", lazy.spawn('reboot'), desc="Restart"),
+    Key([mod, ctrl], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # Meta
     Key([mod, alt, ctrl], "r", lazy.reload_config(), desc="Reload the config"),
 ]
-
-groups = [Group(i) for i in "123456789"]
 
 for i in groups:
     keys.extend(
@@ -108,6 +138,10 @@ for i in groups:
             Key([mod, alt, shift], i.name, lazy.window.togroup(i.name), desc="move focused window to group {}".format(i.name)),
         ]
     )
+
+
+
+# -------------------- Layouts -------------------- #
 
 layouts = [
     layout.Columns(
@@ -136,9 +170,20 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
+
+# -------------------- Layouts -------------------- #
+
 screens = [
-    Screen(bottom=process_bar),
+    Screen(
+      wallpaper='${wallpaper-path}',
+      bottom=process_bar
+    ),
 ]
+
+
+
+
 
 # Drag floating layouts.
 mouse = [
@@ -173,17 +218,7 @@ reconfigure_screens = True
 # focus, should we respect this or not?
 auto_minimize = True
 
-# When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = None
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
 wmname = "LG3D"
 
   '';

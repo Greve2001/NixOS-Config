@@ -2,7 +2,7 @@
   primary-color = "#89B4FA";
   on-primary-color = "";
 
-  secondary-color = "";
+  secondary-color = "#5A75A1";
   on-secondary-color = "";
 
   text-color = "";

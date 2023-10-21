@@ -1,5 +1,3 @@
-{ ... }:
-
 let login = [ "multi-user.target" ];
 in
 {

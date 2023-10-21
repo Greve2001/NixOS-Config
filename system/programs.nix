@@ -28,6 +28,7 @@
     rofi
     arandr
     brightnessctl
+    pavucontrol
 
     # Utility and Tools
     wget

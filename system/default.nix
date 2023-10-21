@@ -61,6 +61,8 @@
       QT_ENABLE_HIGHDPI_SCALING = "1";
       QT_SCALE_FACTOR = "1.75"; # Updated from '2'
       QT_FONT_DPI = "96";
+
+      XCURSOR_Size = "26";
     };
   };
 
