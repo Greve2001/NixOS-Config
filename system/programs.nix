@@ -25,14 +25,17 @@
     # Desktop Setup
     networkmanagerapplet
     flameshot
-    rofi
-    arandr
     brightnessctl
     pavucontrol
 
-    # Wayland
+    ## X11
+    rofi
+    arandr
+
+    ## Wayland
     wayland
     hyprpaper
+    waybar
 
     # Utility and Tools
     wget

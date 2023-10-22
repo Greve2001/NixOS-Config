@@ -11,7 +11,9 @@
   background-color = "";
 
   root-color = "800080";
-  
+ 
+  inactive-color = "808080";
+
   success-color = "50C878";
   error-color = "FF0000";
 }

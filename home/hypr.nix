@@ -32,10 +32,11 @@ exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL
 
 
 # --------------- Startup --------------- #
-exec-once = hyprpaper & # Wallpaper
-#exec-once = dunst & waybar &
+exec-once = hyprpaper
+exec-once = waybar
+#exec-once = dunst
 #exec-once = /usr/lib/polkit-kde-authentication-agent-1
-exec-once = nextcloud &
+exec-once = nextcloud
 
 # For screen sharing
 exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -140,6 +141,7 @@ bind = SUPER, 2, workspace, 2
 bind = SUPER, 3, workspace, 3
 bind = SUPER, 4, workspace, 4
 bind = SUPER, 5, workspace, 5
+bind = SUPER, 6, workspace, 6
 
 # Switch Focus
 bind = SUPER ALT, left, movefocus, l
@@ -155,6 +157,7 @@ bind = SUPER SHIFT, 2, movetoworkspace, 2
 bind = SUPER SHIFT, 3, movetoworkspace, 3
 bind = SUPER SHIFT, 4, movetoworkspace, 4
 bind = SUPER SHIFT, 5, movetoworkspace, 5
+bind = SUPER SHIFT, 6, movetoworkspace, 6
 
 # Move Window in Workspace Around
 bind = SUPER SHIFT ALT, left, movewindow, l

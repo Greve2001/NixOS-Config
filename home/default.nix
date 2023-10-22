@@ -9,6 +9,7 @@ in
     ./zsh.nix 
     ./kitty.nix
     ./hypr.nix
+    ./waybar.nix
   ];
 
   # Home Manager Specification
