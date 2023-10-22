@@ -42,19 +42,26 @@
       VISUAL = "nvim";
 
       # UI Scaling
-      GDK_SCALE = "2";
-      GDK_DPI_SCALE = "0.5";
-      QT_AUTO_SCREEN_SET_FACTOR = "1";
-      QT_ENABLE_HIGHDPI_SCALING = "1";
-      QT_SCALE_FACTOR = "1.75"; # Updated from '2'
-      QT_FONT_DPI = "96";
+      #GDK_SCALE = "2";
+      #GDK_DPI_SCALE = "0.5";
+      #QT_AUTO_SCREEN_SET_FACTOR = "1";
+      #QT_ENABLE_HIGHDPI_SCALING = "1";
+      #QT_SCALE_FACTOR = "1.75"; # Updated from '2'
+      #QT_FONT_DPI = "96";
 
       # X11
-      XCURSOR_SIZE = "26";
+      #XCURSOR_SIZE = "26";
 
       # Wayland
-      WLR_NO_HARDWARE_CURSORS = "1";
-      NIXOS_OZONE_WL = "1"; # For electron apps
+      #WLR_NO_HARDWARE_CURSORS = "1";
+      #NIXOS_OZONE_WL = "1"; # For electron apps
+      #LIBVA_DRIVER_NAME = "nvidia";
+      #XDG_SESSION_TYPE = "wayland";
+      #GBM_BACKEND = "nvidia-drm";
+      #__GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      #MOZ_ENABLE_WAYLAND = "1";
+      #MOZ_DBUS_REMOTE = "1";
+      #NVD_BACKEND = "direct";
     };
   };
 

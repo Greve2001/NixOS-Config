@@ -36,6 +36,9 @@
     wayland
     hyprpaper
     waybar
+    wofi
+    dunst
+    dolphin
 
     # Utility and Tools
     wget

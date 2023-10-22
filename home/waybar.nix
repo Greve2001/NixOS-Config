@@ -11,21 +11,21 @@ in
     border-radius: 0;
     font-family: Cartograph CF Nerd Font, monospace;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 28px;
     min-height: 0;
 }
 
 window#waybar {
     color: #${theme.primary-color};
-    padding: 10px;
-    /*margin: 10px;*/ /*superseeded by config*/
+    padding: 20px;
+    /*margin: 20px;*/ /*superseeded by config*/
     background: rgba(30, 30, 46, 0.9);
 }
 
 tooltip {
     background: #1e1e2e;
-    border-radius: 10px;
-    border-width: 2px;
+    border-radius: 20px;
+    border-width: 4px;
     border-style: solid;
     border-color: #11111b;
 }
@@ -33,10 +33,11 @@ tooltip {
 /* Workspace Buttons */
 #workspaces button {
     color: #${theme.secondary-color};
+    margin: 0px 10px 0px 10px;
 }
 
 #workspaces button label {
-	  font-size: 18px;
+	  font-size: 36px;
 }
 
 #workspaces button.visible {
@@ -60,7 +61,7 @@ tooltip {
 #workspaces,
 #tray,
 #backlight {
-  margin: 5px 10px;
+  margin: 10px 20px;
 }
     '';
 
@@ -117,9 +118,9 @@ tooltip {
     },
 
     "tray": {
-        "icon-size": 15,
+        "icon-size": 30,
         "tooltip": false,
-        "spacing": 10
+        "spacing": 20
     },
 
     "clock": {

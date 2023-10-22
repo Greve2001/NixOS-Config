@@ -19,8 +19,8 @@ wallpaper = DP-3,   ${wallpaper-path}
     extraConfig = ''
       
 # --------------- Monitors --------------- #
-monitor = eDP-1,  3840x2160,  1920x0, 2   # Laptop
-monitor = DP-3,   3840x2160,  0x0,    2   # Dell Monitor
+monitor = eDP-1,  3840x2160,  3840x0, 1   # Laptop
+monitor = DP-3,   3840x2160,  0x0,    1   # Dell Monitor
 
 
 # --------------- X11 Support --------------- #
@@ -43,8 +43,6 @@ exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRE
 
 
 # --------------- Environment --------------- #
-env = GDK_SCALE,1
-env = XCURSOR_SIZE,24
 
 
 # --------------- Window Rules --------------- #
@@ -75,9 +73,9 @@ device:epic mouse V1 {
 
 # --------------- Visual --------------- #
 general {
-    gaps_in = 3
-    gaps_out = 5
-    border_size = 3
+    gaps_in = 6
+    gaps_out = 10
+    border_size = 6
     col.active_border = rgba(${theme.primary-color}aa)
     col.inactive_border = rgba(595959aa)
 
@@ -85,11 +83,11 @@ general {
 }
 
 decoration {
-    rounding = 5
+    rounding = 10
 
     drop_shadow = yes
-    shadow_range = 4
-    shadow_render_power = 3
+    shadow_range = 8
+    shadow_render_power = 6
     col.shadow = rgba(1a1a1aee)
 }
 
@@ -124,8 +122,8 @@ gestures {
 bind = SUPER, T, exec, kitty
 bind = SUPER, Q, killactive, 
 bind = SUPER, B, exec, firefox
-#bind = SUPER, N, exec, nautilus
-#bind = SUPER, RETURN, exec, wofi --show drun
+bind = SUPER, N, exec, dolphin
+bind = SUPER, RETURN, exec, wofi --show drun
 
 # Shutdowns and reboot
 bind = SUPER, L, exec, /home/frederik/.config/swaylock/lockscreen.sh
