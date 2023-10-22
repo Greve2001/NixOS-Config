@@ -30,6 +30,10 @@
     brightnessctl
     pavucontrol
 
+    # Wayland
+    wayland
+    hyprpaper
+
     # Utility and Tools
     wget
     pciutils

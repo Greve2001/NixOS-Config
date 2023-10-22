@@ -20,14 +20,6 @@
       displayManager.sddm.enable = true;
       desktopManager.plasma5.enable = true;
     };
-    # Blue light filter
-    #redshift = {
-    #  enable = true;
-    #  temperature = {
-    #    day = 5300;
-    #    night = 3700;
-    #  };
-    #};
 
     # CUPS printing
     printing.enable = true;
@@ -57,13 +49,28 @@
       QT_SCALE_FACTOR = "1.75"; # Updated from '2'
       QT_FONT_DPI = "96";
 
-      XCURSOR_Size = "26";
+      # X11
+      XCURSOR_SIZE = "26";
+
+      # Wayland
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1"; # For electron apps
     };
   };
 
+  # Hardware
+  hardware = {
+    opengl.enable = true;
+    nvidia.modesetting.enable = true;
+    pulseaudio.enable = false;
+  };
+
+  # XDG portal
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
   # Sound
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
