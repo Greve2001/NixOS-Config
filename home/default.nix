@@ -21,7 +21,7 @@ in
         builtins.readFile ./certificates/ca_eduroam.pem;
 
       # Qtile
-      ".config/qtile/config.py".text = qtile-config.text;
+      # ".config/qtile/config.py".text = qtile-config.text;
       
       # Xresources
       ".Xresources".text = ''

@@ -2,20 +2,6 @@
 
 {
   specialisation = {
-    # Full Desktop Manager
-    plasma-kde.configuration = {
-      lib.mkForce.services = {
-        # Display Server & Desktop Manager
-        xserver = {
-          enable = true;
-          layout = "dk";
-          xkbVariant = "";
-          displayManager.sddm.enable = true;
-          desktopManager.plasma5.enable = true;
-        };
-      };
-    };
-
     # Nvidia
     nvidia-explicit.configuration = {
       services.xserver.videoDrivers = [ "nvidia" ];

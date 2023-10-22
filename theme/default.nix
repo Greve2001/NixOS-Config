@@ -1,8 +1,8 @@
 {
-  primary-color = "#89B4FA";
+  primary-color = "#e7b077";
   on-primary-color = "";
 
-  secondary-color = "#5A75A1";
+  secondary-color = "#765745";
   on-secondary-color = "";
 
   text-color = "";

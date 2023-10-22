@@ -5,6 +5,12 @@ in
 {
   text = ''
     
+# Colors
+primary_color = '${theme.primary-color}'
+secondary_color = '${theme.secondary-color}'
+error_color = '${theme.error-color}'
+wallpaper_path = '${wallpaper-path}'
+
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -32,54 +38,13 @@ for i in range(len(group_names)):
     )
   )
 
-
-
-# -------------------- Process Bar -------------------- #
-
-process_bar = bar.Bar(
-    [
-        # Right Side
-        widget.CurrentLayout(),
-        widget.GroupBox(
-            margin_x=7,
-            padding_x=4,
-
-            highlight_method='text',
-            this_current_screen_border='${theme.primary-color}',
-            other_current_screen_border='${theme.secondary-color}',
-            
-            urgent_alert_method='text',
-            urgent_border='${theme.error-color}',
-            urgent_text='${theme.error-color}',
-        ),
-        widget.Prompt(
-            foreground='${theme.primary-color}'
-        ),
-        
-
-        widget.Spacer(),
-
-        # Left side
-        widget.Systray(icon_size=32),
-        widget.Spacer(length=20),
-        widget.Battery(
-            fmt='Bat: {}'
-        ),
-        widget.Spacer(length=20),
-        widget.PulseVolume(
-            fmt='Vol: {}',
-            volume_app='pavucontrol'
-        ),
-        widget.Spacer(length=20),
-        widget.Clock(format="%d-%m-%Y %a %H:%M %p"),
-    ], 
-    50 # Size
-)
-
     
 # -------------------- Keymaps -------------------- #
 
 keys = [
+    # Move between screens
+    Key([mod], 'period', lazy.next_screen(), desc='Next monitor'),
+
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -101,12 +66,8 @@ keys = [
     Key([mod, ctrl], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, ctrl], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod, ctrl], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    #Key([mod, ctrl], "s", lazy.layout.toggle_split(),desc="Toggle between split and unsplit sides of stack"),
     
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
+    # Terminal
     Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
     
     # Toggle between different layouts as defined below
@@ -122,9 +83,9 @@ keys = [
     Key([mod, shift], "Return", lazy.spawn('rofi -show run'), desc="Start Rofi"),
     
     # Shutdown and Reboot
-    Key([mod, shift, ctrl], "q", lazy.spawn('poweroff'), desc="Shutdown"),
+    Key([mod, shift, ctrl], "l", lazy.spawn('poweroff'), desc="Shutdown"),
     Key([mod, shift, ctrl], "r", lazy.spawn('reboot'), desc="Restart"),
-    Key([mod, ctrl], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, shift], "l", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # Meta
     Key([mod, alt, ctrl], "r", lazy.reload_config(), desc="Reload the config"),
@@ -145,8 +106,8 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-        border_focus_stack=['${theme.primary-color}', '${theme.primary-color}'],
-        border_focus='${theme.primary-color}',
+        border_focus_stack=primary_color,
+        border_focus=primary_color,
         border_width=5
     ),
     layout.Max(),
@@ -172,16 +133,102 @@ extension_defaults = widget_defaults.copy()
 
 
 
-# -------------------- Layouts -------------------- #
+# -------------------- Screens -------------------- #
 
 screens = [
-    Screen(
-      wallpaper='${wallpaper-path}',
-      bottom=process_bar
-    ),
+  Screen(
+    wallpaper=wallpaper_path,
+    bottom=bar.Bar(
+      [
+        # Right Side
+        widget.CurrentLayout(),
+        widget.GroupBox(
+            margin_x=7,
+            padding_x=4,
+
+            highlight_method='text',
+
+            this_current_screen_border=primary_color,
+            this_screen_border=secondary_color,
+            other_current_screen_border=secondary_color,
+            other_screen_border=secondary_color,
+            
+            urgent_alert_method='text',
+            urgent_border=error_color,
+            urgent_text=error_color,
+        ),
+        widget.Prompt(
+            foreground=primary_color
+        ),
+        
+
+        widget.Spacer(),
+
+        # Left side
+        widget.Systray(icon_size=32),
+        widget.Spacer(length=20),
+        widget.Battery(
+            fmt='Bat: {}'
+        ),
+        widget.Spacer(length=20),
+        widget.PulseVolume(
+            fmt='Vol: {}',
+            volume_app='pavucontrol'
+        ),
+        widget.Spacer(length=20),
+        widget.Clock(format="%d-%m-%Y %a %H:%M %p"),
+      ], 
+      50 # Size
+    )
+  ),
+  
+
+  Screen(
+    wallpaper=wallpaper_path,
+    bottom=bar.Bar(
+      [
+        # Right Side
+        widget.CurrentLayout(),
+        widget.GroupBox(
+            margin_x=7,
+            padding_x=4,
+
+            highlight_method='text',
+
+            this_current_screen_border=primary_color,
+            this_screen_border=secondary_color,
+            other_current_screen_border=secondary_color,
+            other_screen_border=secondary_color,
+            
+            urgent_alert_method='text',
+            urgent_border=error_color,
+            urgent_text=error_color,
+        ),
+        widget.Prompt(
+            foreground=primary_color
+        ),
+        
+
+        widget.Spacer(),
+
+        # Left side
+        widget.Systray(icon_size=32),
+        widget.Spacer(length=20),
+        widget.Battery(
+            fmt='Bat: {}'
+        ),
+        widget.Spacer(length=20),
+        widget.PulseVolume(
+            fmt='Vol: {}',
+            volume_app='pavucontrol'
+        ),
+        widget.Spacer(length=20),
+        widget.Clock(format="%d-%m-%Y %a %H:%M %p"),
+      ], 
+      50 # Size
+    )
+  ),
 ]
-
-
 
 
 

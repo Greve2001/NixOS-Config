@@ -16,15 +16,10 @@
       enable = true;
       layout = "us";
       xkbVariant = "";
-      #displayManager.sddm.enable = true;
-      #desktopManager.plasma5.enable = true;
-      displayManager.lightdm = {
-        enable = true;
-        background = ../theme/background.jpg;
-      };
-      windowManager.qtile.enable = true;
+      
+      displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
     };
-
     # Blue light filter
     #redshift = {
     #  enable = true;
