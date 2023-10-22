@@ -124,6 +124,7 @@ bind = SUPER, Q, killactive,
 bind = SUPER, B, exec, firefox
 bind = SUPER, N, exec, dolphin
 bind = SUPER, RETURN, exec, wofi --show drun
+bind = SUPER, P, exec, grim -g "$(slurp)" - | wl-copy
 
 # Shutdowns and reboot
 bind = SUPER, L, exec, /home/frederik/.config/swaylock/lockscreen.sh

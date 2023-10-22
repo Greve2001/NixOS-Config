@@ -39,6 +39,9 @@
     wofi
     dunst
     dolphin
+    wl-clipboard
+    grim
+    slurp
 
     # Utility and Tools
     wget
