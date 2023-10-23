@@ -1,7 +1,5 @@
-let
-  theme = import ../theme;
-in
-{
+let theme = import ../../theme;
+in {
 
   programs.starship = {
     enable = true;
@@ -13,7 +11,8 @@ in
       '';
 
       git_branch = {
-        format = "[$symbol $branch(:$remote_branch) ](bold #${theme.primary-color})";
+        format =
+          "[$symbol $branch(:$remote_branch) ](bold #${theme.primary-color})";
         symbol = "";
       };
 
@@ -49,4 +48,3 @@ in
     };
   };
 }
-

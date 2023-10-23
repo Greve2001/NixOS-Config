@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   services = {
     tlp = {
@@ -19,11 +17,10 @@
         CPU_BOOST_ON_BAT = 0;
       };
     };
-  
+
     power-profiles-daemon.enable = false;
     upower.enable = true;
   };
 
   boot.blacklistedKernelModules = [ "nouveau" ];
 }
-

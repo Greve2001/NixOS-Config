@@ -1,18 +1,16 @@
 { config, inputs, pkgs, nur, ... }:
 
-{
+let home = import ./home;
+in {
+  imports = [ inputs.home-manager.nixosModules.home-manager ./system ];
+
   system.stateVersion = "23.05"; # DONT TOUCH
 
-  imports = [
-    inputs.home-manager.nixosModules.home-manager
-    ./system
-    ./users/frederik.nix
-  ];
-
   # Nix settings
+  nixpkgs.config.allowUnfree = true;
   nix = {
     nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
-    
+
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
@@ -43,4 +41,12 @@
   # Virtualization
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;
+
+  # Users
+  users.users.frederik = {
+    isNormalUser = true;
+    description = "Frederik Greve Petersen";
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+  };
+  home-manager.users.frederik = home;
 }

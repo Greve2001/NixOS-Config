@@ -1,49 +1,35 @@
-{ pkgs, inputs, nur, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
+  users.defaultUserShell = pkgs.zsh;
   programs = {
     ssh.startAgent = true;
-
     zsh.enable = true;
-
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-    };
-
-    steam.enable = true;
   };
 
-  users.defaultUserShell = pkgs.zsh;
-
   environment.systemPackages = with pkgs; [
-    # Desktop Setup
-    networkmanagerapplet
-    flameshot
+    # Flakes
+    inputs.nixvim.packages."x86_64-linux".default
+
+    # Applications - Move to Home Manager to configure.
+    firefox
+    thunderbird
+    nextcloud-client
+    steam-run
+    protontricks
+    libreoffice-fresh
+    signal-desktop
+    discord
+    spotify
+    obsidian
+    krita
+    joplin-desktop
+
+    # Utilites
     brightnessctl
     pavucontrol
 
-    ## X11
-    rofi
-    arandr
-
-    ## Wayland
-    wayland
-    hyprpaper
-    waybar
-    wofi
-    dunst
-    dolphin
-    wl-clipboard
-    grim
-    slurp
-
-    # Utility and Tools
+    # Tools
     wget
     pciutils
     git
@@ -58,23 +44,6 @@
     virt-manager
     wineWowPackages.full
 
-    # Flakes
-    inputs.nixvim.packages."x86_64-linux".default
-
-    # Applications
-    firefox
-    thunderbird
-    nextcloud-client
-    steam-run
-    protontricks
-    libreoffice-fresh
-    signal-desktop
-    discord
-    spotify
-    obsidian
-    krita
-    joplin-desktop
-
     # Development
     file
     xz
@@ -85,12 +54,10 @@
     gcc
     virtualenv
 
-    # SDKs
     jdk
     dotnet-sdk
-    # python39
+    #python39
 
-    # VS Code Config        
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
         # Theme
@@ -111,5 +78,17 @@
         redhat.java
       ];
     })
+
+    # Wayland
+    wayland
+    hyprpaper
+    waybar
+    wofi
+    dunst
+    dolphin
+    wl-clipboard
+    grim
+    slurp
+    greetd.tuigreet
   ];
 }
