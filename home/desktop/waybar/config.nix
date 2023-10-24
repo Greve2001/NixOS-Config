@@ -7,14 +7,16 @@
         "passtrough": false,
         "gtk-layer-shell": true,
         "height": 0,
-        "margin": 0,
+        "margin": 10,
         "modules-left": [
             "clock",
-            "hyprland/workspaces"
-        ],
-        "modules-center": ["hyprland/window"],
-        "modules-right": [
             "tray",
+        ],
+        "modules-center": [
+          "hyprland/workspaces"
+        ],
+        "modules-right": [
+            "temperature",
             "network",
             "backlight",
     	      "pulseaudio",
@@ -57,7 +59,7 @@
         },
 
         "backlight": {
-    	      "format": "{icon} {percent}%",
+    	      "format": "{icon}",
     	      "device": "intel_backlight",
     	      "format-icons": ["", "󰃟", "󰃠"]
         },
@@ -65,7 +67,7 @@
         "pulseaudio": {
             "format": "{icon} {volume}%",
             "tooltip": false,
-            "format-muted": " Muted",
+            "format-muted": "󰝟",
             "format-icons": {
                 "headphone": "",
                 "hands-free": "",
@@ -80,8 +82,8 @@
         "pulseaudio#microphone": {
             "format": "{format_source}",
             "tooltip": false,
-            "format-source": " {volume}%",
-            "format-source-muted": " Muted",
+            "format-source": "",
+            "format-source-muted": "",
         },
 
         "battery": {
@@ -95,6 +97,14 @@
             "format-icons": ["", "", "", "", ""],
             "format-charging": " {capacity}%",
             "max-length": 25
+        },
+
+
+        "temperature": {
+          "thermal-zone": 3,
+          "format": " {temperatureC}°C",
+          "critical-threshold": 90,
+          "format-critical": "{temperatureC}°C ",
         },
 
         "network": {

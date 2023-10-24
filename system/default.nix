@@ -49,4 +49,10 @@
 
   # Fonts
   fonts.packages = with pkgs; [ nerdfonts ];
+
+  # Environment Variables
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 }

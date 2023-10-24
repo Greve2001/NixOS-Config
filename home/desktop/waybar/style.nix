@@ -57,7 +57,8 @@ in
     #network,
     #workspaces,
     #tray,
-    #backlight {
+    #backlight,
+    #temperature {
       margin: 10px 20px;
     }
 

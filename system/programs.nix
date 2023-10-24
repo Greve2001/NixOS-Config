@@ -13,6 +13,7 @@
 
     # Applications - Move to Home Manager to configure.
     firefox
+    chromium
     thunderbird
     nextcloud-client
     steam-run
