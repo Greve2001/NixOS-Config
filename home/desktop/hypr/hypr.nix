@@ -43,6 +43,7 @@ in {
       env = MOZ_ENABLE_WAYLAND, 1
       env = QT_QPA_PLATFORM, "wayland;xcb"
       env = QT_QPA_PLATFORMTHEME, "qt5ct"
+      env = GDK_SCALE, 2
 
 
       # --------------- Window Rules --------------- #
@@ -51,7 +52,7 @@ in {
 
       # --------------- Inputs --------------- #
       input {
-          kb_layout = us
+          kb_layout = eu
           kb_variant =
           kb_model =
           kb_options =
@@ -65,6 +66,8 @@ in {
 
           sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
       }
+
+      numlock_by_default = true
 
       device:epic mouse V1 {
           sensitivity = -0.5

@@ -1,1 +1,1 @@
-{ imports = [ ./hypr.nix ./waybar.nix ]; }
+{ imports = [ ./hypr ./waybar ]; }

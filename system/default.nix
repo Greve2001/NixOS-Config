@@ -13,6 +13,16 @@
 
   # Services
   services = {
+    # Greeter
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "tuigreet -r -c Hyprland";
+        };
+      };
+    };
+
     # CUPS printing
     printing.enable = true;
 
