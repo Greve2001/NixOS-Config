@@ -1,4 +1,4 @@
-let theme = import ../../theme;
+let theme = import ../theme;
 in {
 
   programs.starship = {

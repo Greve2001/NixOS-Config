@@ -1,4 +1,4 @@
-let theme = import ../../../theme;
+let theme = import ../../theme;
 in {
   # Hyprland
   wayland.windowManager.hyprland = {
@@ -68,15 +68,15 @@ in {
       general {
           gaps_in = 6
           gaps_out = 10
-          border_size = 6
-          col.active_border = rgba(${theme.primary-color}aa)
+          border_size = 4
+          col.active_border = rgba(${theme.primary-color}ff)
           col.inactive_border = rgba(595959aa)
 
           layout = dwindle
       }
 
       decoration {
-          rounding = 10
+          rounding = 20
 
           drop_shadow = yes
           shadow_range = 8
@@ -120,7 +120,7 @@ in {
       bind = SUPER, P, exec, grim -g "$(slurp)" - | wl-copy
 
       # Shutdowns and reboot
-      bind = SUPER, L, exec, /home/frederik/.config/swaylock/lockscreen.sh
+      bind = SUPER, L, exec, lockscreen
       bind = SUPER SHIFT, L, exec, poweroff
       bind = SUPER ALT, L, exit, 
       bind = SUPER SHIFT, R, exec, reboot

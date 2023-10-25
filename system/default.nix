@@ -47,6 +47,11 @@
     pulse.enable = true;
   };
 
+  # Security
+  # Allow swaylock to unlock the device
+  security.pam.services.swaylock = { };
+
+
   # Fonts
   fonts.packages = with pkgs; [ nerdfonts ];
 

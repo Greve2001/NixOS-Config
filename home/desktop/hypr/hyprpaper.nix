@@ -1,4 +1,4 @@
-let theme = import ../../../theme;
+let theme = import ../../theme;
 in {
   # Hyprpaper
   home.file.".config/hypr/hyprpaper.conf".text = ''

@@ -1,5 +1,5 @@
 let 
-  theme = import ../../../theme;
+  theme = import ../../theme;
 in
 {
   home.file.".config/waybar/style.css".text = ''
@@ -15,7 +15,8 @@ in
     window#waybar {
         color: #${theme.primary-color};
         padding: 20px;
-        border-radius: 10px;
+        border-radius: 20px;
+        border: 4px solid #${theme.primary-color};
         /*margin: 20px;*/ /*superseeded by config*/
         background: rgba(30, 30, 46, 0.9);
     }

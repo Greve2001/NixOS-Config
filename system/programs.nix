@@ -82,14 +82,7 @@
 
     # Wayland
     wayland
-    hyprpaper
-    waybar
-    wofi
-    dunst
     dolphin
-    wl-clipboard
-    grim
-    slurp
     greetd.tuigreet
   ];
 }
