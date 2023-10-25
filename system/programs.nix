@@ -12,7 +12,6 @@
     inputs.nixvim.packages."x86_64-linux".default
 
     # Applications - Move to Home Manager to configure.
-    firefox
     chromium
     thunderbird
     nextcloud-client
