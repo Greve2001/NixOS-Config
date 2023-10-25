@@ -36,7 +36,7 @@ in {
       env = QT_QPA_PLATFORM, "wayland;xcb"
       env = QT_QPA_PLATFORMTHEME, "qt5ct"
       env = GDK_SCALE, 2
-
+      env = NIXOS_OZONE_WL, 1
 
       # --------------- Window Rules --------------- #
       #windowrulev2 = opacity 0.90 0.90, class:^(.*)$ 
@@ -44,7 +44,7 @@ in {
 
       # --------------- Inputs --------------- #
       input {
-          kb_layout = us
+          kb_layout = eu
           kb_variant =
           kb_model =
           kb_options =
@@ -175,18 +175,18 @@ in {
       bind = SUPER SHIFT, RETURN, togglesplit,
 
       # Audio Sink
-      bind = SUPER CTRL, up, exec, wpctl set-volume @DEFAULT_SINK@ 5%+ &
-      bind = SUPER CTRL, down, exec, wpctl set-volume @DEFAULT_SINK@ 5%- &
-      bind = SUPER CTRL, M, exec, wpctl set-mute @DEFAULT_SINK@ toggle &
+      bind = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+ &
+      bind = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%- &
+      bind = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle &
 
       # Audio Source
-      bind = SUPER CTRL SHIFT, up, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%+ &
-      bind = SUPER CTRL SHIFT, down, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%- &
-      bind = SUPER CTRL SHIFT, M, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle &
+      bind = SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%+ &
+      bind = SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%- &
+      bind = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle &
 
       # Backlight
-      bind = SUPER CTRL, left, exec, brightnessctl set 5%- --min-value=10000
-      bind = SUPER CTRL, right, exec, brightnessctl set 5%+ --min-value=10000
+      bind = , XF86MonBrightnessDown, exec, brightnessctl set 5%- --min-value=12000
+      bind = , XF86MonBrightnessUp, exec, brightnessctl set 5%+ --min-value=12000
 
     '';
   };

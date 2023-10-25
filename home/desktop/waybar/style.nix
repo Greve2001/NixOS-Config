@@ -15,6 +15,7 @@ in
     window#waybar {
         color: #${theme.primary-color};
         padding: 20px;
+        border-radius: 10px;
         /*margin: 20px;*/ /*superseeded by config*/
         background: rgba(30, 30, 46, 0.9);
     }
