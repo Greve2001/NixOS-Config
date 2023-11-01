@@ -36,6 +36,7 @@ in {
       env = QT_QPA_PLATFORM, "wayland;xcb"
       env = QT_QPA_PLATFORMTHEME, "qt5ct"
       env = GDK_SCALE, 2
+      env = QT_SCALE_FACTOR, 2
       env = NIXOS_OZONE_WL, 1
 
       # --------------- Window Rules --------------- #
@@ -116,7 +117,8 @@ in {
       bind = SUPER, Q, killactive, 
       bind = SUPER, B, exec, firefox
       bind = SUPER, N, exec, dolphin
-      bind = SUPER, RETURN, exec, wofi --show drun
+      bind = SUPER, RETURN, exec, tofi-drun
+      bind = SUPER SHIFT, RETURN, exec, tofi-run
       bind = SUPER, P, exec, grim -g "$(slurp)" - | wl-copy
 
       # Shutdowns and reboot
@@ -157,6 +159,11 @@ in {
       bind = SUPER SHIFT ALT, up, movewindow, u
       bind = SUPER SHIFT ALT, down, movewindow, d
 
+      # Move workspace to another monitor
+      bind = SUPER SHIFT CTRL, left, moveworkspacetomonitor, l
+      bind = SUPER SHIFT CTRL, right, moveworkspacetomonitor, r
+
+      # Resizing
       bind = SUPER SHIFT ALT, RETURN, submap, resize
       submap = resize
       binde = , right, resizeactive, 10 0

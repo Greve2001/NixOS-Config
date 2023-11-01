@@ -3,7 +3,7 @@
 let
   settings = {
     "browser.toolbars.bookmarks.visibility" = "always";
-    "layout.css.devPixelsPerPx" = "1.5";
+    "layout.css.devPixelsPerPx" = "2";
 
     # Taken directly from within broswer after setting up
     "browser.uiCustomization.state" = ''

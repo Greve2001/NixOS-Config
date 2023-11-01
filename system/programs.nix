@@ -24,6 +24,7 @@
     obsidian
     krita
     joplin-desktop
+    zathura
 
     # Utilites
     brightnessctl
@@ -56,7 +57,7 @@
 
     jdk
     dotnet-sdk
-    #python39
+    python3
 
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [

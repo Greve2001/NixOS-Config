@@ -17,9 +17,7 @@
     greetd = {
       enable = true;
       settings = {
-        default_session = {
-          command = "tuigreet -r -c Hyprland";
-        };
+        default_session = { command = "tuigreet -r -c Hyprland"; };
       };
     };
 
@@ -28,6 +26,17 @@
 
     # Trimming of SSD
     fstrim.enable = true;
+  };
+
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardError = "journal"; # Without this errors will spam on screen
+    # Without these bootlogs will spam on screen
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
   };
 
   # Hardware
@@ -50,7 +59,6 @@
   # Security
   # Allow swaylock to unlock the device
   security.pam.services.swaylock = { };
-
 
   # Fonts
   fonts.packages = with pkgs; [ nerdfonts ];

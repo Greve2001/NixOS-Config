@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 { 
-  imports = [ ./hypr ./waybar ./swaylock.nix ]; 
+  imports = [ ./hypr ./waybar ./swaylock.nix ./tofi.nix ]; 
 
   home = {
     packages = with pkgs; [
@@ -12,7 +12,7 @@
       wl-clipboard 
       hyprpaper
       waybar
-      wofi
+      tofi
       dunst
       eww-wayland
     ];
