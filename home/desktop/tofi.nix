@@ -259,7 +259,7 @@ in {
     	# algorithm.
     	#
     	# Supported values: normal, prefix, fuzzy
-    	matching-algorithm = normal
+    	#matching-algorithm = normal
 
     	# If true, require a match to allow a selection to be made. If false,
     	# making a selection with no matches will print input to stdout.
@@ -282,13 +282,13 @@ in {
 
     	# If true, use physical keys for shortcuts, regardless of the current
     	# keyboard layout. If false, use the current layout's keys.
-    	physical-keybindings = true
+    	#physical-keybindings = true
 
     	# Instead of printing the selected entry, print the 1-based index of
     	# the selection. This option has no effect in run or drun mode. If
     	# require-match is set to false, non-matching input will still result
     	# in the input being printed.
-    	print-index = false
+    	#print-index = false
 
     	# If true, directly launch applications on selection when in drun mode.
     	# Otherwise, just print the command line to stdout.

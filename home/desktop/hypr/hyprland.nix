@@ -10,12 +10,9 @@ in {
       # --------------- Monitors --------------- #
       monitor = eDP-1,  3840x2160,  3840x0, 1   # Laptop
       monitor = DP-3,   3840x2160,  0x0,    1   # Dell Monitor
-
+      monitor = ,       highres,    auto,   1   # Other
 
       # --------------- X11 Support --------------- #
-      # change monitor to hires, the last argument is the scale factor
-      monitor=,highres,auto,1
-
       # sets xwayland scale
       exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 1
 
@@ -23,7 +20,6 @@ in {
       # --------------- Startup --------------- #
       exec-once = hyprpaper
       exec-once = waybar
-      #exec-once = dunst
       #exec-once = /usr/lib/polkit-kde-authentication-agent-1
       exec-once = nextcloud
 
@@ -33,8 +29,8 @@ in {
 
       # --------------- Environment --------------- #
       env = MOZ_ENABLE_WAYLAND, 1
-      env = QT_QPA_PLATFORM, "wayland;xcb"
-      env = QT_QPA_PLATFORMTHEME, "qt5ct"
+      env = QT_QPA_PLATFORM, wayland;xcb
+      env = QT_QPA_PLATFORMTHEME, qt5ct
       env = GDK_SCALE, 2
       env = QT_SCALE_FACTOR, 2
       env = NIXOS_OZONE_WL, 1
@@ -79,7 +75,7 @@ in {
       decoration {
           rounding = 20
 
-          drop_shadow = yes
+          drop_shadow = no
           shadow_range = 8
           shadow_render_power = 6
           col.shadow = rgba(1a1a1aee)
@@ -117,8 +113,7 @@ in {
       bind = SUPER, Q, killactive, 
       bind = SUPER, B, exec, firefox
       bind = SUPER, N, exec, dolphin
-      bind = SUPER, RETURN, exec, tofi-drun
-      bind = SUPER SHIFT, RETURN, exec, tofi-run
+      bind = SUPER, RETURN, exec, tofi-drun --drun-launch=true
       bind = SUPER, P, exec, grim -g "$(slurp)" - | wl-copy
 
       # Shutdowns and reboot
@@ -195,6 +190,13 @@ in {
       bind = , XF86MonBrightnessDown, exec, brightnessctl set 5%- --min-value=12000
       bind = , XF86MonBrightnessUp, exec, brightnessctl set 5%+ --min-value=12000
 
+
+
+      # --------------- Misc --------------- #
+      misc {
+        disable_hyprland_logo = true
+        disable_splash_rendering = true
+      }
     '';
   };
 }
