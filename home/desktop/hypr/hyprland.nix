@@ -18,10 +18,11 @@ in {
 
 
       # --------------- Startup --------------- #
-      exec-once = hyprpaper
-      exec-once = waybar
-      #exec-once = /usr/lib/polkit-kde-authentication-agent-1
       exec-once = nextcloud
+      exec-once = hyprpaper
+      exec-once = eww daemon & eww open bar0 & eww open bar1
+      
+      #exec-once = /usr/lib/polkit-kde-authentication-agent-1
 
       # For screen sharing
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -66,8 +67,8 @@ in {
           gaps_in = 6
           gaps_out = 10
           border_size = 4
-          col.active_border = rgba(${theme.primary-color}ff)
-          col.inactive_border = rgba(595959aa)
+          col.active_border = rgba(${theme.primary-highlight-color}ff)
+          col.inactive_border = rgba(${theme.primary-color}ff)
 
           layout = dwindle
       }
@@ -155,8 +156,8 @@ in {
       bind = SUPER SHIFT ALT, down, movewindow, d
 
       # Move workspace to another monitor
-      bind = SUPER SHIFT CTRL, left, moveworkspacetomonitor, l
-      bind = SUPER SHIFT CTRL, right, moveworkspacetomonitor, r
+      bind = SUPER CTRL SHIFT, left, moveworkspacetomonitor, e-1
+      bind = SUPER CTRL SHIFT, right, moveworkspacetomonitor, e+1
 
       # Resizing
       bind = SUPER SHIFT ALT, RETURN, submap, resize
@@ -177,14 +178,14 @@ in {
       bind = SUPER SHIFT, RETURN, togglesplit,
 
       # Audio Sink
-      bind = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+ &
-      bind = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%- &
-      bind = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle &
+      bind = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+ --limit 100
+      bind = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%- 
+      bind = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle 
 
       # Audio Source
-      bind = SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%+ &
-      bind = SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%- &
-      bind = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle &
+      bind = SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%+ --limit 100
+      bind = SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%-
+      bind = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle
 
       # Backlight
       bind = , XF86MonBrightnessDown, exec, brightnessctl set 5%- --min-value=12000
@@ -196,6 +197,10 @@ in {
       misc {
         disable_hyprland_logo = true
         disable_splash_rendering = true
+      }
+
+      binds {
+        allow_workspace_cycles = 1
       }
     '';
   };

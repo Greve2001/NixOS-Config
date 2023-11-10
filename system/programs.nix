@@ -29,6 +29,11 @@
     # Utilites
     brightnessctl
     pavucontrol
+    pipr
+
+    # For getting eww to work with workspaces
+    socat
+    jq
 
     # Tools
     wget

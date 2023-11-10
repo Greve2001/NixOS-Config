@@ -1,9 +1,11 @@
 {
   # Colors
-  primary-color = "e7b077";
+  primary-highlight-color = "d03958";
+
+  primary-color = "83b8e2";
   on-primary-color = "";
 
-  secondary-color = "765745";
+  secondary-color = "1f5b9e";
   on-secondary-color = "";
 
   text-color = "";
