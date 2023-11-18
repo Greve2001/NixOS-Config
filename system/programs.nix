@@ -49,6 +49,7 @@
     tlp
     virt-manager
     wineWowPackages.full
+    rmview
 
     # Development
     file
@@ -63,6 +64,10 @@
     jdk
     dotnet-sdk
     python3
+    
+    rustc
+    cargo
+    cargo-modules
 
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
@@ -87,7 +92,7 @@
 
     # Wayland
     wayland
-    dolphin
+    xwayland
     greetd.tuigreet
   ];
 }

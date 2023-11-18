@@ -13,6 +13,8 @@
 
   # Services
   services = {
+    xserver.dpi = 192; # Scaling
+
     # Greeter
     greetd = {
       enable = true;
@@ -44,16 +46,23 @@
     opengl.enable = true;
     nvidia.modesetting.enable = true;
     pulseaudio.enable = false;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
 
   # Sound
   sound.enable = true;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    blueman.enable = true;
   };
 
   # Security

@@ -15,6 +15,7 @@
       tofi
       dunst
       eww-wayland
+      dolphin
     ];
   };
 }

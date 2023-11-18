@@ -9,8 +9,11 @@
     theme.name = "Qogir-Dark";
     iconTheme.package = pkgs.qogir-icon-theme;
     iconTheme.name = "Qogir-dark";
-    cursorTheme.package = pkgs.nordzy-cursor-theme;
-    cursorTheme.name = "Nordzy-cursors";
+    cursorTheme = {
+      package = pkgs.nordzy-cursor-theme;
+      name = "Nordzy-cursors";
+      size = 44;
+    };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
       gtk-xft-antialias = 1;

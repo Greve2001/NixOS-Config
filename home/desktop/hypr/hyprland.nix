@@ -18,7 +18,7 @@ in {
 
 
       # --------------- Startup --------------- #
-      exec-once = nextcloud
+      exec-once = nextcloud --background
       exec-once = hyprpaper
       exec-once = eww daemon & eww open bar0 & eww open bar1
       
@@ -35,6 +35,12 @@ in {
       env = GDK_SCALE, 2
       env = QT_SCALE_FACTOR, 2
       env = NIXOS_OZONE_WL, 1
+
+      env = XCURSOR_SIZE, 44
+      env = XCURSOR_THEME, Nordy-cursors
+
+      env = GLFW_IM_MODULE, ibus
+
 
       # --------------- Window Rules --------------- #
       #windowrulev2 = opacity 0.90 0.90, class:^(.*)$ 
@@ -178,12 +184,12 @@ in {
       bind = SUPER SHIFT, RETURN, togglesplit,
 
       # Audio Sink
-      bind = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+ --limit 100
+      bind = , XF86AudioRaiseVolume, exec, wpctl set-volume --limit 1.00 @DEFAULT_SINK@ 5%+ 
       bind = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%- 
       bind = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle 
 
       # Audio Source
-      bind = SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%+ --limit 100
+      bind = SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume --limit 1.00 @DEFAULT_SOURCE@ 5%+ 
       bind = SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%-
       bind = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle
 
