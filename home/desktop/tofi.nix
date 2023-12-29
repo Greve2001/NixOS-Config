@@ -19,7 +19,7 @@ in {
     	font = "Sans"
 
     	# Point size of text.
-    	font-size = 24
+    	font-size = 12
 
     	# Comma separated list of OpenType font feature settings to apply,
     	# if supported by the chosen font. The format is similar to the CSS
@@ -145,7 +145,7 @@ in {
     ### Text layout
     #
     	# Prompt to display.
-    	prompt-text = "run: "
+    	prompt-text = " "
 
     	# Extra horizontal padding between prompt and input.
     	prompt-padding = 0
@@ -170,8 +170,8 @@ in {
     ### Window theming
     #
     	# Width and height of the window. Can be pixels or a percentage.
-    	width = 1280
-    	height = 720
+    	width = 680
+    	height = 460
 
     	# Window background color
     	background-color = #1B1D1E
@@ -183,7 +183,7 @@ in {
     	#outline-color = #080800
 
     	# Width of the border in pixels.
-    	border-width = 12
+    	border-width = 6 
 
     	# Border color
     	border-color = #${theme.primary-color}
@@ -192,10 +192,10 @@ in {
     	corner-radius = 5
 
     	# Padding between borders and text. Can be pixels or a percentage.
-    	padding-top = 8
-    	padding-bottom = 8
-    	padding-left = 8
-    	padding-right = 8
+    	padding-top = 4
+    	padding-bottom = 4
+    	padding-left = 4
+    	padding-right = 4 8
 
     	# Whether to clip text drawing to be within the specified padding. This
     	# is mostly important for allowing text to be inset from the border,

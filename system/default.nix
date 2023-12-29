@@ -13,7 +13,7 @@
 
   # Services
   services = {
-    xserver.dpi = 192; # Scaling
+    #xserver.dpi = 192; # Scaling
 
     # Greeter
     greetd = {
@@ -28,6 +28,11 @@
 
     # Trimming of SSD
     fstrim.enable = true;
+
+    # USB tools
+    gvfs.enable = true;
+    udisks2.enable = true;
+    devmon.enable = true;
   };
 
   systemd.services.greetd.serviceConfig = {

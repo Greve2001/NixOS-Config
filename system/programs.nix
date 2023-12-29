@@ -19,9 +19,9 @@
     protontricks
     libreoffice-fresh
     signal-desktop
-    discord
+    #discord
     spotify
-    obsidian
+    #obsidian
     krita
     joplin-desktop
     zathura
@@ -50,6 +50,9 @@
     virt-manager
     wineWowPackages.full
     rmview
+    usbutils
+    udiskie 
+    udisks
 
     # Development
     file
@@ -62,9 +65,9 @@
     virtualenv
 
     jdk
+    kotlin
     dotnet-sdk
     python3
-    
     rustc
     cargo
     cargo-modules

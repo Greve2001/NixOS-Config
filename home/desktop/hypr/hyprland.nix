@@ -4,12 +4,13 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
-    enableNvidiaPatches = true;
     extraConfig = ''
             
       # --------------- Monitors --------------- #
-      monitor = eDP-1,  3840x2160,  3840x0, 1   # Laptop
-      monitor = DP-3,   3840x2160,  0x0,    1   # Dell Monitor
+      #monitor = eDP-1,  1920x1080,  1920x0, 1   # Laptop
+      monitor = eDP-1,  3840x2160,  3840x0, 2   # Laptop (Try changing back to FHD at some point)
+      
+      #monitor = DP-3,   3840x2160,  0x0,    1   # Dell Monitor
       monitor = ,       highres,    auto,   1   # Other
 
       # --------------- X11 Support --------------- #
@@ -32,12 +33,12 @@ in {
       env = MOZ_ENABLE_WAYLAND, 1
       env = QT_QPA_PLATFORM, wayland;xcb
       env = QT_QPA_PLATFORMTHEME, qt5ct
-      env = GDK_SCALE, 2
-      env = QT_SCALE_FACTOR, 2
+      #env = GDK_SCALE, 2
+      #env = QT_SCALE_FACTOR, 2
       env = NIXOS_OZONE_WL, 1
 
-      env = XCURSOR_SIZE, 44
-      env = XCURSOR_THEME, Nordy-cursors
+      #env = XCURSOR_SIZE, 44
+      #env = XCURSOR_THEME, Nordy-cursors
 
       env = GLFW_IM_MODULE, ibus
 
@@ -70,9 +71,9 @@ in {
 
       # --------------- Visual --------------- #
       general {
-          gaps_in = 6
-          gaps_out = 10
-          border_size = 4
+          gaps_in = 3 #6
+          gaps_out = 5 #10
+          border_size = 2 #4
           col.active_border = rgba(${theme.primary-highlight-color}ff)
           col.inactive_border = rgba(${theme.primary-color}ff)
 
@@ -80,11 +81,11 @@ in {
       }
 
       decoration {
-          rounding = 20
+          rounding = 10 #20
 
           drop_shadow = no
-          shadow_range = 8
-          shadow_render_power = 6
+          shadow_range = 4 #8
+          shadow_render_power = 3 #6
           col.shadow = rgba(1a1a1aee)
       }
 

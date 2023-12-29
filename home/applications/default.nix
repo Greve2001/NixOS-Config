@@ -12,7 +12,7 @@
     cursorTheme = {
       package = pkgs.nordzy-cursor-theme;
       name = "Nordzy-cursors";
-      size = 44;
+      size = 22; # 44
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
