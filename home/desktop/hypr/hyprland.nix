@@ -8,10 +8,11 @@ in {
             
       # --------------- Monitors --------------- #
       #monitor = eDP-1,  1920x1080,  1920x0, 1   # Laptop
-      monitor = eDP-1,  3840x2160,  3840x0, 2   # Laptop (Try changing back to FHD at some point)
+      monitor = eDP-1,  3840x2160,  1920x0, 2   # Laptop (Try changing back to FHD at some point)
       
-      #monitor = DP-3,   3840x2160,  0x0,    1   # Dell Monitor
+      monitor = DP-3,   3840x2160,  0x0,    2   # Dell Monitor
       monitor = ,       highres,    auto,   1   # Other
+
 
       # --------------- X11 Support --------------- #
       # sets xwayland scale
@@ -62,10 +63,6 @@ in {
           }
 
           sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-      }
-
-      device:epic mouse V1 {
-          sensitivity = -0.5
       }
 
 

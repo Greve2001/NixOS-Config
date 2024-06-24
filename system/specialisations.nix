@@ -1,7 +1,21 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
   specialisation = {
+    # Xorg
+    Xorg.configuration = {
+      services = {
+        xserver = {
+          enable = true;
+          displayManager.sddm.enable = true;
+          desktopManager.plasma5.enable = true;
+        };
+        greetd = {
+          enable = lib.mkForce false;
+        };
+      };
+    };
+
     # Explicit GPU Offloading
     nvidia-explicit.configuration = {
       services.xserver.videoDrivers = [ "nvidia" ];

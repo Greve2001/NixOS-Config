@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -17,11 +17,14 @@
 
     # Greeter
     greetd = {
-      enable = true;
+      enable = lib.mkDefault true;
       settings = {
         default_session = { command = "tuigreet -r -c Hyprland"; };
       };
     };
+
+    # VPN
+    tailscale.enable = true;
 
     # CUPS printing
     printing.enable = true;

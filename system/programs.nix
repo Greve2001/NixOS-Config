@@ -5,6 +5,7 @@
   programs = {
     ssh.startAgent = true;
     zsh.enable = true;
+    steam.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -25,6 +26,7 @@
     krita
     joplin-desktop
     zathura
+    livebook
 
     # Utilites
     brightnessctl
@@ -47,7 +49,6 @@
     zip
     unzip
     tlp
-    virt-manager
     wineWowPackages.full
     rmview
     usbutils
@@ -64,13 +65,22 @@
     gcc
     virtualenv
 
-    jdk
+    jdk17
+    jdk21
+    maven
     kotlin
     dotnet-sdk
     python3
     rustc
     cargo
     cargo-modules
+    dotnet-sdk_7
+    dotnet-runtime_7
+    dotnet-aspnetcore_7
+    nodejs_20
+    sqlcmd
+    elixir_1_17
+    #sbclPackages.mssql
 
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
@@ -90,6 +100,7 @@
 
         bbenoist.nix
         redhat.java
+        elixir-lsp.vscode-elixir-ls
       ];
     })
 

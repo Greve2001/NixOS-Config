@@ -40,6 +40,7 @@ in {
 
   # Virtualization
   virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
   programs.dconf.enable = true;
 
   # Users

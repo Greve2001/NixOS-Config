@@ -14,7 +14,7 @@
       waybar
       tofi
       dunst
-      eww-wayland
+      eww
       dolphin
     ];
   };
