@@ -20,9 +20,7 @@
     protontricks
     libreoffice-fresh
     signal-desktop
-    #discord
     spotify
-    #obsidian
     krita
     joplin-desktop
     zathura
@@ -33,9 +31,10 @@
     pavucontrol
     pipr
 
-    # For getting eww to work with workspaces
+    # For getting eww to work
     socat
     jq
+    iw
 
     # Tools
     wget
@@ -80,6 +79,7 @@
     nodejs_20
     sqlcmd
     elixir_1_17
+    erlang
     #sbclPackages.mssql
 
     (vscode-with-extensions.override {
