@@ -8,7 +8,7 @@ in {
             
       # --------------- Monitors --------------- #
       #monitor = eDP-1,  1920x1080,  1920x0, 1   # Laptop
-      monitor = eDP-1,  3840x2160,  1920x0, 2   # Laptop (Try changing back to FHD at some point)
+      monitor = eDP-1,  3840x2160,  1920x0, 2   # Laptop 
       
       monitor = DP-3,   3840x2160,  0x0,    2   # Dell Monitor
       monitor = ,       highres,    auto,   1   # Other
@@ -101,10 +101,6 @@ in {
       dwindle {
           pseudotile = yes 
           preserve_split = yes
-      }
-
-      master {
-          new_is_master = true
       }
 
       gestures {

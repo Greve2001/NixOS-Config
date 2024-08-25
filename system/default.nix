@@ -51,7 +51,7 @@
 
   # Hardware
   hardware = {
-    opengl.enable = true;
+    graphics.enable = true;
     nvidia.modesetting.enable = true;
     pulseaudio.enable = false;
     bluetooth = {
@@ -61,7 +61,6 @@
   };
 
   # Sound
-  sound.enable = true;
   security.rtkit.enable = true;
   services = {
     pipewire = {

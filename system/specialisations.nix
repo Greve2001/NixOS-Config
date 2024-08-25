@@ -7,9 +7,9 @@
       services = {
         xserver = {
           enable = true;
-          displayManager.sddm.enable = true;
           desktopManager.plasma5.enable = true;
         };
+        displayManager.sddm.enable = true;
         greetd = {
           enable = lib.mkForce false;
         };
@@ -20,10 +20,9 @@
     nvidia-explicit.configuration = {
       services.xserver.videoDrivers = [ "nvidia" ];
       hardware = {
-        opengl = {
+        graphics = {
           enable = true;
-          driSupport = true;
-          driSupport32Bit = true;
+          enable32Bit = true;
         };
 
         nvidia = {
@@ -45,10 +44,9 @@
     nvidia-always.configuration = {
       services.xserver.videoDrivers = [ "nvidia" ];
       hardware = {
-        opengl = {
+        graphics = {
           enable = true;
-          driSupport = true;
-          driSupport32Bit = true;
+          enable32Bit = true;
         };
 
         nvidia = {

@@ -2,7 +2,7 @@
   programs.zsh = {
     enable = true;
     autocd = true;
-    enableAutosuggestions = true;
+    #autosuggestions.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     history = { size = 10000; };

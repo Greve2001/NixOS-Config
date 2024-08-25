@@ -31,7 +31,7 @@
   };
   qt = {
     enable = true;
-    platformTheme = "kde";
+    platformTheme.name = "kde";
     style.package = pkgs.qogir-kde;
     style.name = "Qogir-Dark";
   };
