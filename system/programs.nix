@@ -4,7 +4,10 @@
   users.defaultUserShell = pkgs.zsh;
   programs = {
     ssh.startAgent = true;
-    zsh.enable = true;
+    zsh = {
+      enable = true;
+      autosuggestions.enable = true;
+    };
     steam.enable = true;
   };
 
@@ -94,6 +97,8 @@
         shd101wyy.markdown-preview-enhanced
 
         # Programming Languages and Linters
+        ms-vscode.cpptools
+
         ms-dotnettools.csharp # Ionide dependency
         ionide.ionide-fsharp
         ms-python.python
