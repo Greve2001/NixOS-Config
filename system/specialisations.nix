@@ -26,6 +26,7 @@
         };
 
         nvidia = {
+          open = true;
           package = config.boot.kernelPackages.nvidiaPackages.stable;
           prime = {
             sync.enable = false;
@@ -50,6 +51,7 @@
         };
 
         nvidia = {
+          open = true;
           package = config.boot.kernelPackages.nvidiaPackages.stable;
           prime = {
             sync.enable = true;

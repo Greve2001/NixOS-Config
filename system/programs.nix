@@ -23,16 +23,19 @@
     protontricks
     libreoffice-fresh
     signal-desktop
+    slack
     spotify
     krita
     joplin-desktop
     zathura
     livebook
+    jetbrains.clion
 
     # Utilites
     brightnessctl
     pavucontrol
     pipr
+    xdg-desktop-portal-hyprland
 
     # For getting eww to work
     socat
@@ -66,6 +69,8 @@
     gnumake
     gcc
     virtualenv
+    docker
+    docker-compose
 
     jdk17
     jdk21
@@ -108,6 +113,7 @@
         elixir-lsp.vscode-elixir-ls
       ];
     })
+    zed-editor
 
     # Wayland
     wayland
