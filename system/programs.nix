@@ -2,6 +2,7 @@
 
 {
   users.defaultUserShell = pkgs.zsh;
+  
   programs = {
     ssh.startAgent = true;
     zsh = {
@@ -13,7 +14,7 @@
 
   environment.systemPackages = with pkgs; [
     # Flakes
-    inputs.nixvim.packages."x86_64-linux".default
+    # inputs.nixvim.packages."x86_64-linux".default
 
     # Applications - Move to Home Manager to configure.
     chromium
@@ -36,6 +37,11 @@
     pavucontrol
     pipr
     xdg-desktop-portal-hyprland
+
+    wine
+    wine64
+    winetricks
+    yad
 
     # For getting eww to work
     socat
@@ -71,6 +77,7 @@
     virtualenv
     docker
     docker-compose
+    postman
 
     jdk17
     jdk21
@@ -111,13 +118,19 @@
         bbenoist.nix
         redhat.java
         elixir-lsp.vscode-elixir-ls
+        ms-azuretools.vscode-docker
       ];
     })
     zed-editor
+    neovim
 
     # Wayland
     wayland
     xwayland
     greetd.tuigreet
+
+    # 3D Printing
+    orca-slicer
+
   ];
 }

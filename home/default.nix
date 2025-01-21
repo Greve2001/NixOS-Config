@@ -1,6 +1,12 @@
-let eduroam_cert = builtins.readFile ./files/ca_eduroam.pem;
-in {
-  imports = [ ./applications ./cli ./desktop ];
+let 
+  eduroam_cert = builtins.readFile ./files/ca_eduroam.pem;
+in 
+{
+  imports = [ 
+    ./applications 
+    ./cli 
+    ./desktop 
+  ];
 
   home = {
     stateVersion = "23.05";

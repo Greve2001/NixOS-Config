@@ -2,7 +2,10 @@
 
 let home = import ./home;
 in {
-  imports = [ inputs.home-manager.nixosModules.home-manager ./system ];
+  imports = [ 
+    inputs.home-manager.nixosModules.home-manager 
+    ./system 
+  ];
 
   system.stateVersion = "23.05"; # DONT TOUCH
 
@@ -42,12 +45,13 @@ in {
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   programs.dconf.enable = true;
+  virtualisation.docker.enable = true;
 
   # Users
   users.users.frederik = {
     isNormalUser = true;
     description = "Frederik Greve Petersen";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" ];
   };
   home-manager.users.frederik = home;
 }
