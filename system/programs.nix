@@ -2,7 +2,7 @@
 
 {
   users.defaultUserShell = pkgs.zsh;
-  
+
   programs = {
     ssh.startAgent = true;
     zsh = {
@@ -38,11 +38,6 @@
     pipr
     xdg-desktop-portal-hyprland
 
-    wine
-    wine64
-    winetricks
-    yad
-
     # For getting eww to work
     socat
     jq
@@ -63,7 +58,7 @@
     wineWowPackages.full
     rmview
     usbutils
-    udiskie 
+    udiskie
     udisks
 
     # Development
@@ -96,6 +91,20 @@
     elixir_1_17
     erlang
     #sbclPackages.mssql
+
+    # LSPs
+    luarocks
+    elixir-ls
+    lua-language-server
+    haskellPackages.lsp
+    rust-analyzer
+
+    # Formatters
+    stylua
+    rustfmt
+    nixfmt-rfc-style
+    shfmt
+    prettierd
 
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
