@@ -1,25 +1,38 @@
-{ config, inputs, pkgs, nur, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  nur,
+  ...
+}:
 
-let home = import ./home;
-in {
-  imports = [ 
-    inputs.home-manager.nixosModules.home-manager 
-    ./system 
+let
+  home = import ./home;
+in
+{
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    ./system
   ];
 
   system.stateVersion = "23.05"; # DONT TOUCH
 
   # Nix settings
   nixpkgs.config.allowUnfree = true;
+
   nix = {
     nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
 
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       auto-optimise-store = true;
     };
 
-    gc = { # Garbage Collecion
+    gc = {
+      # Garbage Collecion
       automatic = true;
       persistent = true;
       dates = "weekly";
@@ -51,7 +64,12 @@ in {
   users.users.frederik = {
     isNormalUser = true;
     description = "Frederik Greve Petersen";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "docker"
+    ];
   };
   home-manager.users.frederik = home;
 }

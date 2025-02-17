@@ -24,13 +24,8 @@
     protontricks
     libreoffice-fresh
     signal-desktop
-    slack
     spotify
-    krita
-    joplin-desktop
     zathura
-    livebook
-    jetbrains.clion
 
     # Utilites
     brightnessctl
@@ -65,31 +60,31 @@
     file
     xz
     libGLU
-    android-studio
-    jetbrains.idea-ultimate
     gnumake
     gcc
     virtualenv
     docker
     docker-compose
     postman
+    beekeeper-studio
 
     jdk17
     jdk21
     maven
     kotlin
-    dotnet-sdk
     python3
     rustc
     cargo
     cargo-modules
-    dotnet-sdk_7
-    dotnet-runtime_7
-    dotnet-aspnetcore_7
+    dotnet-sdk_8
+    dotnet-runtime_8
+    dotnet-aspnetcore_8
+    dotnet-ef
     nodejs_20
     sqlcmd
     elixir_1_17
     erlang
+    go
     #sbclPackages.mssql
 
     # LSPs
@@ -98,6 +93,10 @@
     lua-language-server
     haskellPackages.lsp
     rust-analyzer
+    csharp-ls
+    gopls
+    vue-language-server
+    vscode-langservers-extracted
 
     # Formatters
     stylua
@@ -105,6 +104,7 @@
     nixfmt-rfc-style
     shfmt
     prettierd
+    csharpier
 
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
@@ -128,6 +128,10 @@
         redhat.java
         elixir-lsp.vscode-elixir-ls
         ms-azuretools.vscode-docker
+
+        ms-dotnettools.vscode-dotnet-runtime
+        vue.volar
+        dbaeumer.vscode-eslint
       ];
     })
     zed-editor

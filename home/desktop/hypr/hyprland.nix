@@ -1,5 +1,7 @@
-let theme = import ../../theme;
-in {
+let
+  theme = import ../../theme;
+in
+{
   # Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
@@ -9,7 +11,7 @@ in {
       # --------------- Monitors --------------- #
       #monitor = eDP-1,  1920x1080,  1920x0, 1   # Laptop
       monitor = eDP-1,  3840x2160,  1920x0, 2   # Laptop 
-      
+
       monitor = DP-3,   3840x2160,  0x0,    2   # Dell Monitor
       monitor = ,       highres,    auto,   1   # Other
 
@@ -23,7 +25,7 @@ in {
       exec-once = nextcloud --background
       exec-once = hyprpaper
       exec-once = eww daemon & eww open bar0 & eww open bar1
-      
+
       #exec-once = /usr/lib/polkit-kde-authentication-agent-1
 
       # For screen sharing
@@ -79,11 +81,6 @@ in {
 
       decoration {
           rounding = 10 #20
-
-          drop_shadow = no
-          shadow_range = 4 #8
-          shadow_render_power = 3 #6
-          col.shadow = rgba(1a1a1aee)
       }
 
       animations {

@@ -19,7 +19,9 @@
     greetd = {
       enable = lib.mkDefault true;
       settings = {
-        default_session = { command = "tuigreet -r -c Hyprland"; };
+        default_session = {
+          command = "tuigreet -r -c Hyprland";
+        };
       };
     };
 
@@ -78,7 +80,9 @@
   security.pam.services.swaylock = { };
 
   # Fonts
-  fonts.packages = with pkgs; [ nerdfonts ];
+  fonts.packages =
+    [ ]
+    ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # Environment Variables
   environment.variables = {

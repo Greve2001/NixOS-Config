@@ -8,20 +8,29 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR";
-
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nur, ... }: {
-    nixosConfigurations = {
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      nur,
+      ...
+    }:
+    {
+      nixosConfigurations = {
 
-      nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [ 
-          nur.nixosModules.nur
-          ./configuration.nix 
-        ];
+        nixos = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            nur.modules.nixos.default
+            ./configuration.nix
+          ];
+        };
       };
     };
-  };
 }
