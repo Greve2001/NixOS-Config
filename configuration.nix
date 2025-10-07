@@ -126,6 +126,9 @@ in
 
     # Boot
     greetd.tuigreet
+
+    # Decorative
+    hyprpaper
   ];
 
   fonts.packages = with pkgs; [
