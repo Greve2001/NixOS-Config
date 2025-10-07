@@ -100,10 +100,13 @@ in
       portalPackage =
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
+
+    waybar.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
     # Essentials
+    jujutsu
     vim neovim
     wget
     zip
@@ -118,10 +121,18 @@ in
     # Utilities
     brightnessctl
     pavucontrol
+    impala
     tofi
 
     # Boot
     greetd.tuigreet
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.hack
+    nerd-fonts.ubuntu
   ];
 
   systemd.services.greetd.serviceConfig = {
